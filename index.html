@@ -1,275 +1,407 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/doc/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/doc/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/doc/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/doc/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/doc/css/main.css">
+
+
+<link rel="stylesheet" href="/doc/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"avvount.github.io","root":"/doc/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://avvount.github.io/doc/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale">
 <meta property="article:author" content="Avvount">
 <meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://avvount.github.io/doc/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Hexo</title>
   
-    <link rel="alternate" href="/doc/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/doc/favicon.png">
-  
-  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/doc/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/doc/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/doc/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-  
-  
-<link rel="stylesheet" href="/doc/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/doc/fancybox/jquery.fancybox.min.css">
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/doc/" id="logo">Hexo</a>
-      </h1>
+          <div class="content index posts-expand">
+            
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/doc/">Home</a>
-        
-          <a class="main-nav-link" href="/doc/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/doc/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://avvount.github.io/doc"></form>
-      </div>
-    </div>
-  </div>
-</header>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-K8s证书" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/" class="article-date">
-  <time class="dt-published" datetime="2022-12-05T02:15:25.000Z" itemprop="datePublished">2022-12-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
-    </h1>
-  
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">K8s 证书更新</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-05 10:15:25 / Modified: 14:47:51" itemprop="dateCreated datePublished" datetime="2022-12-05T10:15:25+08:00">2022-12-05</time>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="证书文件说明"><a href="#证书文件说明" class="headerlink" title="证书文件说明"></a>证书文件说明</h2><p>证书文件均在&#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;下  </p>
+          <h2 id="证书文件说明"><a href="#证书文件说明" class="headerlink" title="证书文件说明"></a>证书文件说明</h2><p>证书文件均在&#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;下  </p>
 <h3 id="Kubernetes-集群根证书"><a href="#Kubernetes-集群根证书" class="headerlink" title="Kubernetes 集群根证书"></a>Kubernetes 集群根证书</h3><p><code>ca.crt ca.key</code><br>由此根证书签发的证书有:  </p>
 <ol>
 <li>kube-apiserver 组件持有的服务端证书<br>  <code>apiserver.crt apiserver.key</code></li>
 <li>kubelet 组件持有的客户端证书<br>  <code>apiserver-kubelet-client.crt apiserver-kubelet-client.key</code></li>
 </ol>
-<ul>
-<li>注意<br>kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书, 让 kubelet 根据本地主机信息自动生成服务端证书并保存到配置的cert-dir文件夹中。轮换的证书默认位于目录 &#x2F;var&#x2F;lib&#x2F;kubelet&#x2F;pki。</li>
-</ul>
-<h3 id="汇聚层-aggregator-证书"><a href="#汇聚层-aggregator-证书" class="headerlink" title="汇聚层(aggregator)证书"></a>汇聚层(aggregator)证书</h3><p><code>front-proxy-ca.crt front-proxy-ca.key</code></p>
-<p>由此根证书签发的证书只有一组:  </p>
-<ol>
-<li>代理端使用的客户端证书, 用作代用户与 kube-apiserver 认证<br><code>front-proxy-client.crt front-proxy-client.key</code></li>
-</ol>
-<h3 id="etcd-集群根证书"><a href="#etcd-集群根证书" class="headerlink" title="etcd 集群根证书"></a>etcd 集群根证书</h3><p><code>etcd/ca.crt etcd/ca.key</code></p>
-<p>由此根证书签发机构签发的证书有:  </p>
-<ol>
-<li>etcd server 持有的服务端证书<br><code>etcd/server.crt etcd/server.key</code>  </li>
-<li>peer 集群中节点互相通信使用的客户端证书<br><code>etcd/peer.crt etcd/peer.key</code>  </li>
-<li>pod 中定义 Liveness 探针使用的客户端证书<br><code>etcd/healthcheck-client.crt etcd/healthcheck-client.key</code>  </li>
-<li>配置在 kube-apiserver 中用来与 etcd server 做双向认证的客户端证书<br><code>apiserver-etcd-client.crt apiserver-etcd-client.key</code></li>
-</ol>
-<h3 id="Serveice-Account秘钥"><a href="#Serveice-Account秘钥" class="headerlink" title="Serveice Account秘钥"></a>Serveice Account秘钥</h3><p><code>sa.crt sa.key</code>  </p>
-<p>这组的密钥对仅提供给 kube-controller-manager 使用。 kube-controller-manager 通过 sa.key 对 token 进行签名, master 节点通过公钥 sa.pub 进行签名的验证.</p>
-<p>以下几种证书在所有master节点的都一样，证书有效期为10年<br>├── ca.crt<br>├── ca.key<br>├── sa.key<br>├── sa.pub<br>├── front-proxy-ca.crt<br>├── front-proxy-ca.key<br>├── etcd<br>├── ├── ca.crt<br>├── ├── ca.key  </p>
-<p>以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年<br>├── apiserver.crt<br>├── apiserver.key<br>├── apiserver-kubelet-client.crt<br>├── apiserver-kubelet-client.key<br>├── front-proxy-client.crt<br>├── front-proxy-client.key<br>├── apiserver-etcd-client.crt<br>├── apiserver-etcd-client.key<br>├── etcd<br>├── ├── healthcheck-client.crt<br>├── ├── healthcheck-client.key<br>├── ├── peer.crt<br>├── ├── peer.key<br>├── ├── server.crt<br>├── ├── server.key </p>
-<h2 id="证书更新"><a href="#证书更新" class="headerlink" title="证书更新"></a>证书更新</h2><p>以下操作需要在所有master节点执行  </p>
-<h3 id="生成集群配置的yaml文件"><a href="#生成集群配置的yaml文件" class="headerlink" title="生成集群配置的yaml文件"></a>生成集群配置的yaml文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config view &gt; /root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
-
-<h3 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf /etc/kubernetes/ etc-kubernetes.tar.gz</span><br><span class="line">tar -czvf /var/lib/etcd etcd.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h3 id="更新证书"><a href="#更新证书" class="headerlink" title="更新证书"></a>更新证书</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm certs renew all --config=/root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
-
-<h3 id="更新conf配置"><a href="#更新conf配置" class="headerlink" title="更新conf配置"></a>更新conf配置</h3><ol>
-<li>删除旧配置文件</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> /etc/kubernetes/admin.conf /etc/kubernetes/kubelet.conf /etc/kubernetes/controller-manager.conf /etc/kubernetes/scheduler.conf </span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>生成新配置文件</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init phase kubeconfig all --config /root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>更新kubeconfig文件</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">$HOME</span>/.kube/config <span class="variable">$HOME</span>/.kube/config.old</span><br><span class="line"><span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line"><span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure>
-
-<h3 id="检查证书到期时间是否延长"><a href="#检查证书到期时间是否延长" class="headerlink" title="检查证书到期时间是否延长"></a>检查证书到期时间是否延长</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm certs check-expiration  </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="重启-kube-apiserver-kube-controller-manager-kube-scheduler-etcd"><a href="#重启-kube-apiserver-kube-controller-manager-kube-scheduler-etcd" class="headerlink" title="重启 kube-apiserver kube-controller-manager kube-scheduler etcd"></a>重启 kube-apiserver kube-controller-manager kube-scheduler etcd</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart kublet</span><br><span class="line"><span class="comment"># docker ps | grep -E &#x27;k8s_kube-apiserver|k8s_kube-controller-manager|k8s_kube-scheduler|k8s_etcd_etcd&#x27; | awk -F &#x27; &#x27; &#x27;&#123;print $1&#125;&#x27; | xargs docker restart</span></span><br></pre></td></tr></table></figure>
-
-
-<p><a target="_blank" rel="noopener" href="https://kubernetes.io/zh-cn/docs/setup/best-practices/certificates/">PKI证书和要求</a><br><a target="_blank" rel="noopener" href="https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/">使用 kubeadm 进行证书管理</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangrui153169/p/15814148.html">使用 kubeadm 进行证书管理 - 博客园</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/" data-id="clbadj572000jcon599cl8r6z" data-title="K8s 证书更新" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Linux-信号处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2021-07-03T04:49:03.000Z" itemprop="datePublished">2021-07-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">Linux 信号处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-03 12:49:03" itemprop="dateCreated datePublished" datetime="2021-07-03T12:49:03+08:00">2021-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>之前在Linux C程序中对崩溃信号一直处理不好,偶然间发现libSegFault.so这个库,由于这个库是glibc提供的,基本常用的发行版都会自带这个库的,所以想之后程序中不在处理会导致程序崩溃的信号,统一交给libSegFault来处理</p>
+          <p>之前在Linux C程序中对崩溃信号一直处理不好,偶然间发现libSegFault.so这个库,由于这个库是glibc提供的,基本常用的发行版都会自带这个库的,所以想之后程序中不在处理会导致程序崩溃的信号,统一交给libSegFault来处理</p>
 <h2 id="libSegFault使用方式"><a href="#libSegFault使用方式" class="headerlink" title="libSegFault使用方式"></a>libSegFault使用方式</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> SEGFAULT_SIGNALS=<span class="string">&quot;segv, ill, abrt, bus&quot;</span> LD_PRELOAD=/lib/libSegFault.so someapp</span><br></pre></td></tr></table></figure>
 <p>SEGFAULT_SIGNALS不设置的话,默认只处理segv;设置为all,会处理segv, ill, abrt, fpe, bus, stkflt等信号。需要注意的是，想要使用libSegFault的话，程序里一定不要再通过signal&#x2F;sigaction来捕获相关信号了，否则libSegFault是不会生效的。  </p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/18706496/can-one-use-libsegfault-so-to-get-backtraces-for-sigabrt">stackoverflow</a><br><a target="_blank" rel="noopener" href="https://sourceware.org/git/?p=glibc.git;a=blob;f=debug/segfault.c;hb=HEAD">libSegFault源码</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/07/03/mark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/07/03/mark/" class="post-title-link" itemprop="url">mark</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-03 12:48:38" itemprop="dateCreated datePublished" datetime="2021-07-03T12:48:38+08:00">2021-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://ialloc.org/blog/ngx-notes-manipulation/">Nginx 源代码笔记 - 运维命令</a><br><a target="_blank" rel="noopener" href="https://jasonsonghoho.github.io/2017/10/22/171022/">Cassandra命令</a></p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" data-id="clbadj573000ocon535cy29tj" data-title="Linux 信号处理" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-mark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/07/03/mark/" class="article-date">
-  <time class="dt-published" datetime="2021-07-03T04:48:38.000Z" itemprop="datePublished">2021-07-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/07/03/mark/">mark</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/07/03/How-to-structure-your-project-C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/07/03/How-to-structure-your-project-C/" class="post-title-link" itemprop="url">How to structure your project (C++)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-03 12:43:12" itemprop="dateCreated datePublished" datetime="2021-07-03T12:43:12+08:00">2021-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://ialloc.org/blog/ngx-notes-manipulation/">Nginx 源代码笔记 - 运维命令</a><br><a target="_blank" rel="noopener" href="https://jasonsonghoho.github.io/2017/10/22/171022/">Cassandra命令</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/07/03/mark/" data-id="clbadj57e001dcon5409s06co" data-title="mark" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-How-to-structure-your-project-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/07/03/How-to-structure-your-project-C/" class="article-date">
-  <time class="dt-published" datetime="2021-07-03T04:43:12.000Z" itemprop="datePublished">2021-07-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>怎么组织你的C++代码?之前工程目录结构一直比较混乱,查了一下C++的相关开源项目和一些资料,整理一下思路</p>
+          <p>怎么组织你的C++代码?之前工程目录结构一直比较混乱,查了一下C++的相关开源项目和一些资料,整理一下思路</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">├── cmake</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── doc</span><br><span class="line">├── extern</span><br><span class="line">├── include</span><br><span class="line">├── lib</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── src</span><br><span class="line">│   └── CMakeLists.txt</span><br><span class="line">└── tests</span><br><span class="line">    ├── catch.hpp</span><br><span class="line">    └── CMakeLists.txt</span><br></pre></td></tr></table></figure>
 <p>各个目录和文件的作用:</p>
 <ul>
@@ -283,46 +415,79 @@
 <li>include<br>如果工程要对外提供头文件的话,将对外提供的头文件放到这里<br>todo: 了解一下CMake的install命令</li>
 <li>tests<br>单元测试</li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://github.com/mmorse1217/cmake-project-template">github mmorse1217</a><br><a target="_blank" rel="noopener" href="https://github.com/kigster/cmake-project-template">github kigster</a><br><a target="_blank" rel="noopener" href="https://cmake-basis.github.io/">cmake-basis</a><br><a target="_blank" rel="noopener" href="https://cliutils.gitlab.io/modern-cmake/">An Introduction to Modern CMake</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt">How do you add Boost libraries in CMakeLists.txt</a></p>
-
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2021/07/03/How-to-structure-your-project-C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/07/03/How-to-structure-your-project-C/" data-id="clbadj570000hcon5gv3ucvld" data-title="How to structure your project (C++)" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-mtproxy配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time class="dt-published" datetime="2021-06-19T08:30:05.000Z" itemprop="datePublished">2021-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">mtproxy配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-19 16:30:05" itemprop="dateCreated datePublished" datetime="2021-06-19T16:30:05+08:00">2021-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <ol>
+          <ol>
 <li><p>获取 Telegram ipv4 服务器列表及配置</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf</span><br></pre></td></tr></table></figure>
 
@@ -339,214 +504,350 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/" data-id="clbadj57e001gcon56pded87h" data-title="mtproxy配置" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-acme续期证书" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/06/19/acme%E7%BB%AD%E6%9C%9F%E8%AF%81%E4%B9%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-06-19T08:14:29.000Z" itemprop="datePublished">2021-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/06/19/acme%E7%BB%AD%E6%9C%9F%E8%AF%81%E4%B9%A6/">acme续期证书</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/06/19/acme%E7%BB%AD%E6%9C%9F%E8%AF%81%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/06/19/acme%E7%BB%AD%E6%9C%9F%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">acme续期证书</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-19 16:14:29" itemprop="dateCreated datePublished" datetime="2021-06-19T16:14:29+08:00">2021-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d example.cf -d <span class="string">&quot;*.example.cf&quot;</span> --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please --<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">acme.sh --renew -d example.cf -d <span class="string">&quot;*.example.cf&quot;</span> --yes-I-know-dns-manual-mode-enough-go-ahead-please --<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+          <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d example.cf -d <span class="string">&quot;*.example.cf&quot;</span> --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please --<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">acme.sh --renew -d example.cf -d <span class="string">&quot;*.example.cf&quot;</span> --yes-I-know-dns-manual-mode-enough-go-ahead-please --<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 <p>第一次执行会失败,需要去cloudflare上修改txt记录再重新执行一次</p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/06/19/acme%E7%BB%AD%E6%9C%9F%E8%AF%81%E4%B9%A6/" data-id="clbadj57a0013con5a5y45b7u" data-title="acme续期证书" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-Python-GUI-开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/" class="article-date">
-  <time class="dt-published" datetime="2021-06-13T08:25:17.000Z" itemprop="datePublished">2021-06-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/">Python GUI 开发</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">Python GUI 开发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-13 16:25:17" itemprop="dateCreated datePublished" datetime="2021-06-13T16:25:17+08:00">2021-06-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>之前尝试过使用tkinter写python界面,但是没用过可视化的界面设计工具,今天简单玩儿了一下PyQt和PAGE</p>
+          <p>之前尝试过使用tkinter写python界面,但是没用过可视化的界面设计工具,今天简单玩儿了一下PyQt和PAGE</p>
 <h2 id="PAGE"><a href="#PAGE" class="headerlink" title="PAGE"></a>PAGE</h2><p>是基于tkinter的,界面有点丑,但貌似比PyQt轻量一些,感觉不太好用<br>界面拖拽完成后点击Gen_Python-&gt;Generate Python GUI和Gen_Python-&gt;Generate Support Module,一共生产了三个文件page.tcl、page.py、page_support.py，通过page.py来启动</p>
 <p>选定控价点击”Set Command”，弹出窗口中输入回调函数，回调函数会生成在page_support.py里</p>
-<h2 id="PyQt"><a href="#PyQt" class="headerlink" title="PyQt"></a>PyQt</h2><p>安装PyQt5和pyqt5-tools两个模块，pyqt5-tools包里带了qt designer。</p>
-<p>qt designer的界面就比较友好了，带中文界面，界面拖拽完成后保存，会生成一个.ui文件，执行<code>pyuic5 - o xxx.py xxx.ui</code>将ui文件转换为python代码<br>新建一个python文件，贴入以下代码，Ui_Dialog是designer设计好的对话框控件对象，信号和槽的连接可以在designer中设置也可以在MainDialog类中写，但是在designer里貌似不能自定义槽函数，这种就不得不自己写connect函数了</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QDialog</span><br><span class="line"><span class="keyword">from</span> pyqt_demo <span class="keyword">import</span> Ui_Dialog</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainDialog</span>(QDialog, Ui_Dialog):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(QDialog, self).__init__(parent)</span><br><span class="line">        self.setupUi(self)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    myapp = QApplication(sys.argv)</span><br><span class="line">    myDlg = MainDialog()</span><br><span class="line">    myDlg.show()</span><br><span class="line">    sys.exit(myapp.exec_())</span><br></pre></td></tr></table></figure>
-
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p><a target="_blank" rel="noopener" href="https://github.com/PyQt5/PyQt">各种各样的PyQt测试和例子</a></p>
-
+<h2 id="PyQt"><a href="#PyQt" class="headerlink" title="PyQt"></a>PyQt</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2021/06/13/Python-GUI-%E5%BC%80%E5%8F%91/" data-id="clbadj577000wcon5axhzhpvn" data-title="Python GUI 开发" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqlalchemy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2020/11/13/sqlalchemy/" class="article-date">
-  <time class="dt-published" datetime="2020-11-13T14:39:49.000Z" itemprop="datePublished">2020-11-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2020/11/13/sqlalchemy/">sqlalchemy使用问题记录.md</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2020/11/13/sqlalchemy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2020/11/13/sqlalchemy/" class="post-title-link" itemprop="url">sqlalchemy使用问题记录.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-13 22:39:49" itemprop="dateCreated datePublished" datetime="2020-11-13T22:39:49+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="在多进程中使用全局engine导致出错问题"><a href="#在多进程中使用全局engine导致出错问题" class="headerlink" title="在多进程中使用全局engine导致出错问题"></a>在多进程中使用全局engine导致出错问题</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41279157/connection-problems-with-sqlalchemy-and-multiple-processes">Connection problems with SQLAlchemy and multiple processes</a>  </p>
+          <h2 id="在多进程中使用全局engine导致出错问题"><a href="#在多进程中使用全局engine导致出错问题" class="headerlink" title="在多进程中使用全局engine导致出错问题"></a>在多进程中使用全局engine导致出错问题</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41279157/connection-problems-with-sqlalchemy-and-multiple-processes">Connection problems with SQLAlchemy and multiple processes</a>  </p>
 <p><a target="_blank" rel="noopener" href="https://docs.sqlalchemy.org/en/14/core/pooling.html#using-connection-pools-with-multiprocessing-or-os-fork">Using Connection Pools with Multiprocessing or os.fork()</a>  </p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2020/11/13/sqlalchemy/" data-id="clbadj57i001ocon54rl8140j" data-title="sqlalchemy使用问题记录.md" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-Kubernetes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2020/04/18/Kubernetes/" class="article-date">
-  <time class="dt-published" datetime="2020-04-18T15:32:27.000Z" itemprop="datePublished">2020-04-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2020/04/18/Kubernetes/">Kubernetes</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2020/04/18/Kubernetes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2020/04/18/Kubernetes/" class="post-title-link" itemprop="url">Kubernetes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-18 23:32:27" itemprop="dateCreated datePublished" datetime="2020-04-18T23:32:27+08:00">2020-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="设置rsyslogd和systemd"><a href="#设置rsyslogd和systemd" class="headerlink" title="设置rsyslogd和systemd"></a>设置rsyslogd和systemd</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/log/journal</span><br><span class="line">mkdir /etc/systemd/journald.conf.d</span><br><span class="line">cat &gt; /etc/systemd/journald.conf.d/99-prophet.conf &lt;&lt;EOF</span><br><span class="line">[Journal]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">持久化保存到磁盘</span></span><br><span class="line">Storage=persistent</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">压缩历史日志</span></span><br><span class="line">Compress=yes</span><br><span class="line"></span><br><span class="line">SyncIntervalSec=5m</span><br><span class="line">RateLimitInterval=30s</span><br><span class="line">RatelimitBurst=1000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">最大占用空间10G</span></span><br><span class="line">SystemMaxUse=10G</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">单日志文件最大200M</span></span><br><span class="line">SystemMaxFileSize=200M</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">日志保存时间2周</span></span><br><span class="line">MaxRetentionSec=2week</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不将日志转发到syslog</span></span><br><span class="line">ForwardToSyslog=no</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl restart systemd-journald</span><br></pre></td></tr></table></figure>
+          <h2 id="设置rsyslogd和systemd"><a href="#设置rsyslogd和systemd" class="headerlink" title="设置rsyslogd和systemd"></a>设置rsyslogd和systemd</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/log/journal</span><br><span class="line">mkdir /etc/systemd/journald.conf.d</span><br><span class="line">cat &gt; /etc/systemd/journald.conf.d/99-prophet.conf &lt;&lt;EOF</span><br><span class="line">[Journal]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">持久化保存到磁盘</span></span><br><span class="line">Storage=persistent</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">压缩历史日志</span></span><br><span class="line">Compress=yes</span><br><span class="line"></span><br><span class="line">SyncIntervalSec=5m</span><br><span class="line">RateLimitInterval=30s</span><br><span class="line">RatelimitBurst=1000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">最大占用空间10G</span></span><br><span class="line">SystemMaxUse=10G</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">单日志文件最大200M</span></span><br><span class="line">SystemMaxFileSize=200M</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">日志保存时间2周</span></span><br><span class="line">MaxRetentionSec=2week</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不将日志转发到syslog</span></span><br><span class="line">ForwardToSyslog=no</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl restart systemd-journald</span><br></pre></td></tr></table></figure>
 <h2 id="Docker配置"><a href="#Docker配置" class="headerlink" title="Docker配置"></a>Docker配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">    &quot;exec-opts&quot;:[&quot;native.cgroupdrive=systemd&quot;],</span><br><span class="line">    &quot;log-driver&quot;:&quot;json-file&quot;,</span><br><span class="line">    &quot;log-opts&quot;:&#123;</span><br><span class="line">        &quot;max-size&quot;:&quot;100m&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">mkdir -p /etc/systemd/system/docker.service.d/</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="安装Kubeadm"><a href="#安装Kubeadm" class="headerlink" title="安装Kubeadm"></a>安装Kubeadm</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo</span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</span><br><span class="line">    http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://github.com/avvount/Picture-Bed/raw/master/K8s%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE.png" alt="内核参数配置"><br><img src="https://github.com/avvount/Picture-Bed/raw/master/k8s%20image.PNG" alt="K8s基础镜像"> </p>
-
+<h2 id="安装Kubeadm"><a href="#安装Kubeadm" class="headerlink" title="安装Kubeadm"></a>安装Kubeadm</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2020/04/18/Kubernetes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2020/04/18/Kubernetes/" data-id="clbadj572000lcon571hy3u36" data-title="Kubernetes" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-cmake-gcc笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2019-09-14T13:54:32.000Z" itemprop="datePublished">2019-09-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/">cmake&amp;gcc笔记</a>
-    </h1>
+  
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">cmake&gcc笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-14 21:54:32" itemprop="dateCreated datePublished" datetime="2019-09-14T21:54:32+08:00">2019-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+              </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="cmake常用编译选项"><a href="#cmake常用编译选项" class="headerlink" title="cmake常用编译选项"></a>cmake常用编译选项</h2><ol>
+          <h2 id="cmake常用编译选项"><a href="#cmake常用编译选项" class="headerlink" title="cmake常用编译选项"></a>cmake常用编译选项</h2><ol>
 <li><p>指定项目名称  </p>
 <p> <code>project(myproject VERSION 0.1.0)</code><br> 较老版本cmake可能不支持后两个参数,可以使用<code>project(myproject)</code>  </p>
 </li>
@@ -604,140 +905,190 @@
 <li><p>编译Debug版和Release版程序  </p>
  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>) </span><br><span class="line"><span class="keyword">SET</span>(CMAKE_CXX_FLAGS_DEBUG <span class="string">&quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g -ggdb&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(CMAKE_CXX_FLAGS_RELEASE <span class="string">&quot;$ENV&#123;CXXFLAGS&#125; -O3 -Wall&quot;</span>)</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nodeathphoenix/article/details/9982209">Linux 依赖动态库 &#x2F; 静态库的动态态库 &#x2F; 静态库</a></p>
-
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/" data-id="clbadj57b0016con5es2u5u31" data-title="cmake&amp;gcc笔记" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/doc/page/2/">2</a><a class="page-number" href="/doc/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/doc/page/6/">6</a><a class="extend next" rel="next" href="/doc/page/2/">下一页 &raquo;</a>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/doc/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/doc/page/6/">6</a><a class="extend next" rel="next" href="/doc/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Arch/" rel="tag">Arch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Crossover/" rel="tag">Crossover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VBox/" rel="tag">VBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/transmission/" rel="tag">transmission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" rel="tag">现代控制理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="tag">自动控制原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/doc/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/doc/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/doc/tags/C/" style="font-size: 10px;">C#</a> <a href="/doc/tags/C/" style="font-size: 11.67px;">C++</a> <a href="/doc/tags/Crossover/" style="font-size: 10px;">Crossover</a> <a href="/doc/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 11.67px;">C语言</a> <a href="/doc/tags/K8s/" style="font-size: 10px;">K8s</a> <a href="/doc/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/doc/tags/Python/" style="font-size: 10px;">Python</a> <a href="/doc/tags/VBox/" style="font-size: 10px;">VBox</a> <a href="/doc/tags/VPS/" style="font-size: 16.67px;">VPS</a> <a href="/doc/tags/Windows/" style="font-size: 11.67px;">Windows</a> <a href="/doc/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/doc/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/doc/tags/transmission/" style="font-size: 10px;">transmission</a> <a href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 13.33px;">单片机原理</a> <a href="/doc/tags/%E6%B1%87%E7%BC%96/" style="font-size: 13.33px;">汇编</a> <a href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" style="font-size: 10px;">现代控制理论</a> <a href="/doc/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">自动控制原理</a> <a href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 18.33px;">计算机原理</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/04/">四月 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
-          </li>
-        
-          <li>
-            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
-          </li>
-        
-          <li>
-            <a href="/doc/2021/07/03/mark/">mark</a>
-          </li>
-        
-          <li>
-            <a href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
-          </li>
-        
-          <li>
-            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
-          </li>
-        
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
       </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Avvount<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Avvount</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/doc/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/doc/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
 
     </div>
-    <nav id="mobile-nav">
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
   
-    <a href="/doc/" class="mobile-nav-link">Home</a>
-  
-    <a href="/doc/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/doc/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/doc/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/doc/js/script.js"></script>
-
-
-
-
-
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Avvount</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/doc/lib/anime.min.js"></script>
+  <script src="/doc/lib/velocity/velocity.min.js"></script>
+  <script src="/doc/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/doc/js/utils.js"></script>
+
+<script src="/doc/js/motion.js"></script>
+
+
+<script src="/doc/js/schemes/muse.js"></script>
+
+
+<script src="/doc/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
