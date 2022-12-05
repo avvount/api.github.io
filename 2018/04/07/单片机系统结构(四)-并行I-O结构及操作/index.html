@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>单片机系统结构(四)——并行I/O结构及操作 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="8051共有4个8位I&#x2F;O口，共32口线。每位均有自己的锁存器(SFR)，输出驱动器和输入缓冲器。 P0口的结构与操作控制信号为0时，P0口做一般I&#x2F;O口。控制信号为1时，P0口为地址&#x2F;数据复用总线。   P0口做一般I&#x2F;O口使用 数据输出写脉冲加在C上   若D&#x3D;0，则$\bar Q$&#x3D;1，则下拉FET导通，P00引脚输出0   若D&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机系统结构(四)——并行I&#x2F;O结构及操作">
+<meta property="og:url" content="https://avvount.github.io/doc/2018/04/07/%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84(%E5%9B%9B)-%E5%B9%B6%E8%A1%8CI-O%E7%BB%93%E6%9E%84%E5%8F%8A%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="8051共有4个8位I&#x2F;O口，共32口线。每位均有自己的锁存器(SFR)，输出驱动器和输入缓冲器。 P0口的结构与操作控制信号为0时，P0口做一般I&#x2F;O口。控制信号为1时，P0口为地址&#x2F;数据复用总线。   P0口做一般I&#x2F;O口使用 数据输出写脉冲加在C上   若D&#x3D;0，则$\bar Q$&#x3D;1，则下拉FET导通，P00引脚输出0   若D&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/P0%E5%8F%A3.png">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/P1%E5%8F%A3.png">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/P2.png">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/P3.png">
+<meta property="article:published_time" content="2018-04-07T12:42:13.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:49:35.353Z">
+<meta property="article:author" content="Avvount">
+<meta property="article:tag" content="单片机原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/avvount/Picture-Bed/raw/master/P0%E5%8F%A3.png">
+  
+    <link rel="alternate" href="/doc/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/doc/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/doc/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/doc/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/doc/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/doc/">Home</a>
+        
+          <a class="main-nav-link" href="/doc/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/doc/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://avvount.github.io/doc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-单片机系统结构(四)-并行I-O结构及操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2018/04/07/%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84(%E5%9B%9B)-%E5%B9%B6%E8%A1%8CI-O%E7%BB%93%E6%9E%84%E5%8F%8A%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2018-04-07T12:42:13.000Z" itemprop="datePublished">2018-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      单片机系统结构(四)——并行I/O结构及操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>8051共有4个8位I&#x2F;O口，共32口线。<br>每位均有自己的锁存器(SFR)，输出驱动器和输入缓冲器。</p>
+<h1 id="P0口的结构与操作"><a href="#P0口的结构与操作" class="headerlink" title="P0口的结构与操作"></a>P0口的结构与操作</h1><p><img src="https://github.com/avvount/Picture-Bed/raw/master/P0%E5%8F%A3.png" alt="P0口"><br>控制信号为0时，P0口做一般<strong>I&#x2F;O口</strong>。<br>控制信号为1时，P0口为<strong>地址&#x2F;数据复用总线</strong>。  </p>
+<h2 id="P0口做一般I-x2F-O口使用"><a href="#P0口做一般I-x2F-O口使用" class="headerlink" title="P0口做一般I&#x2F;O口使用"></a>P0口做一般I&#x2F;O口使用</h2><ol>
+<li>数据输出<br>写脉冲加在C上</li>
+</ol>
+<ul>
+<li>若D&#x3D;0，则$\bar Q$&#x3D;1，则下拉FET导通，P00引脚输出0  </li>
+<li>若D&#x3D;1，则$\bar Q$&#x3D;0，则下拉FET截止，P00引脚<strong>高阻</strong></li>
+</ul>
+<p><strong>注意</strong>：P0口作为一般I&#x2F;O口时，要外接上拉电阻，以避免数据输出时，出现三态。  </p>
+<ol start="2">
+<li>数据输入</li>
+</ol>
+<ul>
+<li><p>直接读<strong>端口引脚</strong>处的数据<br>   由下面的三态缓冲器将端口数据送入内部总线  </p>
+</li>
+<li><p>读<strong>锁存器Q端</strong>的数据<br>   由上面的三态缓冲器将端口数据送入内部总线    </p>
+</li>
+<li><p>读端口引脚处的数据与读锁存器处的数据的区别  </p>
+<ul>
+<li>读锁存器的数据为了避免读错引脚上的电平  </li>
+<li>读锁存器的数据为了适应“读-修改-写”类指令</li>
+</ul>
+</li>
+</ul>
+<h3 id="“读-修改-写”类指令"><a href="#“读-修改-写”类指令" class="headerlink" title="“读-修改-写”类指令"></a>“读-修改-写”类指令</h3><ol>
+<li><p>指令的特点<br>先读口（锁存器Q端）<br>对读入的数据进行修改<br>再把修改后的数据写到端口上  </p>
+</li>
+<li><p>规律<br>当<strong>目的操作数</strong>为I&#x2F;O口或其中的某一位时，均为“读-修改-写”类指令，要从锁存器中读取数据<br>当<strong>源操作数</strong>为I&#x2F;O口或其中的某一位时，要直接读引脚处数据</p>
+</li>
+</ol>
+<h3 id="P0作为一般输入输出接口时是一个准双向口"><a href="#P0作为一般输入输出接口时是一个准双向口" class="headerlink" title="P0作为一般输入输出接口时是一个准双向口"></a>P0作为一般输入输出接口时是一个准双向口</h3><ol>
+<li>原因<br>前一时刻，如果输出数据0，则Q&#x3D;1，下拉FET导通，P00&#x3D;0<br>下一时刻，要输入数据，由于下拉FET处于开通状态，数据不可能被正确输入，因而是一个准双向口  </li>
+<li>解决办法<br>输入数据前，先把该口置1，使下拉FET截止，以便数据能正确输入</li>
+</ol>
+<h2 id="P0口作为地址-x2F-数据总线"><a href="#P0口作为地址-x2F-数据总线" class="headerlink" title="P0口作为地址&#x2F;数据总线"></a>P0口作为地址&#x2F;数据总线</h2><p>控制信号为高电平1，转换开关接至反向器输出端，同时与门开锁  </p>
+<p>输入数据时，与作为一般I&#x2F;O使用时相同，应先向该口置1（系统自动完成）<br>P0输出地址或数据时  </p>
+<ul>
+<li>若输出1，则上面FET开通、下面FET关断，P0.0&#x3D;1  </li>
+<li>若输出0，则下面FET开通、上面FET关断，P0.0&#x3D;0<br>注意： P0作为数据&#x2F;地址总线复用，输出数据时，不需外接上拉电阻</li>
+</ul>
+<h1 id="P1口的结构与操作"><a href="#P1口的结构与操作" class="headerlink" title="P1口的结构与操作"></a>P1口的结构与操作</h1><p><img src="https://github.com/avvount/Picture-Bed/raw/master/P1%E5%8F%A3.png"></p>
+<p>输出部分有内部上拉电阻R*约为20K，输出数据时不必外加上拉电阻<br>其他部分与P0端口使用相类似，也是一个准双向口</p>
+<h1 id="P2口的结构与操作"><a href="#P2口的结构与操作" class="headerlink" title="P2口的结构与操作"></a>P2口的结构与操作</h1><p>控制信号为0时，P2口做<strong>一般I&#x2F;O口</strong>。<br>控制信号为1时，P2口为<strong>高8位地址输出</strong>。<br><img src="https://github.com/avvount/Picture-Bed/raw/master/P2.png"><br>当P2口作为普通I&#x2F;O口使用时，用法和P1口类似。<br>P2口输出地址信息时，此时单片机完成取指操作或对外部数据存储器16位地址的读写操作。  </p>
+<h1 id="P3口的结构与操作"><a href="#P3口的结构与操作" class="headerlink" title="P3口的结构与操作"></a>P3口的结构与操作</h1><p>做普通端口使用时，变异功能应为“1”<br>使用第二功能时，输出端口锁存器应为“1”<br><img src="https://github.com/avvount/Picture-Bed/raw/master/P3.png"></p>
+<ul>
+<li>P3口第二功能</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>引脚</th>
+<th>转义引脚</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P3.0</td>
+<td>RXD</td>
+<td>串行数据接收端</td>
+</tr>
+<tr>
+<td>P3.1</td>
+<td>TXD</td>
+<td>串行数据发送端</td>
+</tr>
+<tr>
+<td>P3.2</td>
+<td>INT0</td>
+<td>外部中断0请求</td>
+</tr>
+<tr>
+<td>P3.3</td>
+<td>INT1</td>
+<td>外部中断1请求</td>
+</tr>
+<tr>
+<td>P3.4</td>
+<td>T0</td>
+<td>计数器0外部输入</td>
+</tr>
+<tr>
+<td>P3.5</td>
+<td>T1</td>
+<td>计数器1外部输入</td>
+</tr>
+<tr>
+<td>P3.6</td>
+<td>WR</td>
+<td>外部数据存储器写</td>
+</tr>
+<tr>
+<td>P3.7</td>
+<td>RD</td>
+<td>外部数据存储器读</td>
+</tr>
+</tbody></table>
+<h1 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h1><ol>
+<li>I&#x2F;O性质的另一观点</li>
+</ol>
+<ul>
+<li>P0为三态双向I&#x2F;O<br>  因当要输入数据时，先给P0锁存器置1，这时场效应管关断，该口线成为高阻状态，故称P0为三态双向口。  </li>
+<li>P1<del>P3为准双向口<br>  因当要输入数据时，先给P1</del>P3锁存器置1，这时场效应管关断，但由于P1<del>P3内部均有上拉电阻，该口线被拉成高电平，故称P1</del>P3为准双向口。</li>
+</ul>
+<ol start="2">
+<li>I&#x2F;O的输出负载能力</li>
+</ol>
+<ul>
+<li>P0口的每一位输出可以驱动8个LS  TTL输入。  </li>
+<li>P1~P3口的每一位输出可以驱动4个LS  TTL输入。<br>负载能力产生的原因：  如果各口线内部输出驱动电路中的电流过大，可能导致输出信号电平的紊乱。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2018/04/07/%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84(%E5%9B%9B)-%E5%B9%B6%E8%A1%8CI-O%E7%BB%93%E6%9E%84%E5%8F%8A%E6%93%8D%E4%BD%9C/" data-id="clbadhxl9002el0ovdyp27jbj" data-title="单片机系统结构(四)——并行I/O结构及操作" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/doc/2018/11/22/X86%E5%92%8CX87%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          X86和X87汇编指令大全
+        
+      </div>
+    </a>
+  
+  
+    <a href="/doc/2018/04/07/%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E4%B8%89-%E2%80%94%E2%80%94%E6%97%B6%E9%92%9F%E7%94%B5%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">单片机系统结构(三)——时钟电路</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Arch/" rel="tag">Arch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Crossover/" rel="tag">Crossover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VBox/" rel="tag">VBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/transmission/" rel="tag">transmission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" rel="tag">现代控制理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="tag">自动控制原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/doc/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/doc/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/doc/tags/C/" style="font-size: 10px;">C#</a> <a href="/doc/tags/C/" style="font-size: 11.67px;">C++</a> <a href="/doc/tags/Crossover/" style="font-size: 10px;">Crossover</a> <a href="/doc/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 11.67px;">C语言</a> <a href="/doc/tags/K8s/" style="font-size: 10px;">K8s</a> <a href="/doc/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/doc/tags/Python/" style="font-size: 10px;">Python</a> <a href="/doc/tags/VBox/" style="font-size: 10px;">VBox</a> <a href="/doc/tags/VPS/" style="font-size: 16.67px;">VPS</a> <a href="/doc/tags/Windows/" style="font-size: 11.67px;">Windows</a> <a href="/doc/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/doc/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/doc/tags/transmission/" style="font-size: 10px;">transmission</a> <a href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 13.33px;">单片机原理</a> <a href="/doc/tags/%E6%B1%87%E7%BC%96/" style="font-size: 13.33px;">汇编</a> <a href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" style="font-size: 10px;">现代控制理论</a> <a href="/doc/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">自动控制原理</a> <a href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 18.33px;">计算机原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/mark/">mark</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Avvount<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/doc/" class="mobile-nav-link">Home</a>
+  
+    <a href="/doc/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/doc/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/doc/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/doc/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

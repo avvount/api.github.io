@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Notes of C++ Primer Plus | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="通常，IDE允许在辅助窗口中运行程序。程序执行完毕后，有些IDE将关闭该窗口，而有些IDE则不关闭。如果编译器关闭窗口，将难以看到程序的输出，除非程序员眼疾手快，且过目不忘。为查看输出，必须在程序的最后加上一些代码： 123cin.get();cin.get();return 0;  cin.get()语句读取下一次键击，因此上述语句让程序等待，直到按下了Enter键（在按下Enter之前，键击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of C++ Primer Plus">
+<meta property="og:url" content="https://avvount.github.io/doc/2017/04/14/Notes-of-C++-Primer-Plus/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通常，IDE允许在辅助窗口中运行程序。程序执行完毕后，有些IDE将关闭该窗口，而有些IDE则不关闭。如果编译器关闭窗口，将难以看到程序的输出，除非程序员眼疾手快，且过目不忘。为查看输出，必须在程序的最后加上一些代码： 123cin.get();cin.get();return 0;  cin.get()语句读取下一次键击，因此上述语句让程序等待，直到按下了Enter键（在按下Enter之前，键击">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/C++%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png">
+<meta property="og:image" content="https://github.com/avvount/Picture-Bed/raw/master/%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
+<meta property="article:published_time" content="2017-04-14T02:36:57.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:49:35.353Z">
+<meta property="article:author" content="Avvount">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/avvount/Picture-Bed/raw/master/C++%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png">
+  
+    <link rel="alternate" href="/doc/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/doc/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/doc/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/doc/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/doc/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/doc/">Home</a>
+        
+          <a class="main-nav-link" href="/doc/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/doc/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://avvount.github.io/doc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Notes-of-C++-Primer-Plus" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/04/14/Notes-of-C++-Primer-Plus/" class="article-date">
+  <time class="dt-published" datetime="2017-04-14T02:36:57.000Z" itemprop="datePublished">2017-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Notes of C++ Primer Plus
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>通常，IDE允许在辅助窗口中运行程序。程序执行完毕后，有些IDE将关闭该窗口，而有些IDE则不关闭。如果编译器关闭窗口，将难以看到程序的输出，除非程序员眼疾手快，且过目不忘。为查看输出，必须在程序的最后加上一些代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">get</span>();</span><br><span class="line">cin.<span class="built_in">get</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin.get()</code>语句读取下一次键击，因此上述语句让程序等待，直到按下了<code>Enter</code>键（在按下<code>Enter</code>之前，键击将不被发送给程序，因此按其他键都不管用）。如果程序在其常规输入后留下一个没有被处理的键击，则第二条语句是必需的。例如，如果要输入一个数字，则需要输入该数字，然后按<code>Enter</code>键。程序将读取该数字，但<code>Enter</code>键不被处理，这样它将被第一个<code>cin.get()</code>读取。</p>
+</li>
+<li><p>**控制符<code>dec</code>、<code>hex</code><strong>和</strong><code>oct</code>**，分别用于指示<code>cout</code>以十进制、十六进制和八进制格式显示整数</p>
+</li>
+<li><p><strong>后缀</strong>是放在数字常量后面的字母，用于表示类型。整数后面的<code>l</code>或<code>L</code>后缀表示该整数为<code>long</code>常量，<code>u</code>或<code>U</code>后缀表示<code>unsigned int</code>常量，<code>ul</code>（可以采用任何一种顺序，大写小写均可）表示<code>unsigned long</code>常量（由于小写<code>l</code>看上去像1，因此应使用大写<code>L</code>作后缀）。例如，在<code>int</code>为16位、<code>long</code>为32位的系统上，数字22022被存储为<code>int</code>，占16位，数字22022L被存储为<code>long</code>，占32位。同样，22022LU和22022UL都被存储为<code>unsigned long</code>。</p>
+</li>
+<li><p><code>cout.put()</code>函数输出一个字符,如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch=<span class="string">&#x27;c&#x27;</span>;</span><br><span class="line">cout.<span class="built_in">put</span>(ch);</span><br><span class="line">cout.<span class="built_in">put</span>(<span class="string">&#x27;!&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>成员函数</strong>归类所有，描述了操纵类数据的方法。例如类<code>ostream</code>有一个<code>put()</code>成员函数，用来输出字符。只能通过类的特定对象（例如这里的<code>cout</code>对象）来使用成员函数。要通过对象（如<code>cout</code>）使用成员函数，必须用句点将对象名和函数名称（<code>put()</code>）连接起来。句点被称为<strong>成员操作符</strong>。<code>cout.put()</code>的意思是，通过类对象<code>cout</code>来使用函数<code>put()</code>。</p>
+</li>
+<li><p><img src="https://github.com/avvount/Picture-Bed/raw/master/C++%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png" alt="C++转义字符"></p>
+</li>
+<li><p><strong>Unicode</strong>提供了一种表示各种字符集的解决方案——为大量字符和符号提供标准数值编码，并根据类型将它们分组。例如，<code>ASCII</code>码成为<code>Unicode</code>的子集，因此在这两种系统中，美国的拉丁字符（如<code>A</code>和<code>Z</code>）的表示相同。不过，<code>Unicode</code>还包含其他拉丁字符，如欧洲语言使用的拉丁字符、来自其他语言（如希腊语、西里尔语、希伯来语、阿拉伯语、泰语和孟加拉语）中的字符以及象形文字（如中国和日本的文字）。到目前为止，<code>Unicode</code>可以表示96000多种符号和49个手写符号（<code>script</code>），它还在不断发展中。要了解更多有关的知识，请登录<a target="_blank" rel="noopener" href="http://www.unicode.org/">Unicode联盟的网站</a>。 国际标准化组织（ISO）建立了一个工作组，专门开发ISO 10646——这也是一个对多种语言文本进行编码的标准。ISO 10646小组和<code>Unicode</code>小组从1991年开始合作，以确保他们的标准同步。</p>
+</li>
+<li><p>程序需要处理的字符集可能无法用一个8位的字节表示，如日文汉字系统。对于这种情况，C++的处理方式有两种。首先，如果大型字符集是实现的基本字符集，则编译器厂商可以将char定义为一个16位的字节或更长的字节。其次，一种实现可以同时支持一个小型基本字符集和一个较大的扩展字符集。8位char可以表示基本字符集，另一种类型**<code>wchar_t</code><strong>（</strong>宽字符类型<strong>）可以表示扩展字符集。<code>wchar_t</code>类型是一种</strong>整数类型<strong>，它有足够的空间，可以表示系统使用的最大扩展字符集。这种类型与另一种整型（</strong>底层（<code>underlying</code>）类型**）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是<code>unsigned short</code>，而在另一个系统中，则可能是<code>int</code>。</p>
+<p><code>cin</code>和<code>cout</code>将输入和输出看作是<code>char</code>流，因此不适于用来处理<code>wchar_t</code>类型。<code>iostream</code>头文件的最新版本提供了作用相似的工具——<strong>wcin</strong>和<strong>wcout</strong>，可用于处理<code>wchar_t</code>流。另外，可以通过加上前缀<strong>L</strong>来指示宽字符常量和宽字符串。下面的代码将字母P的<code>wchar_t</code>版本存储到变量<code>bob</code>中，并显示单词<code>tall</code>的<code>wchar_t</code>版本：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">wchar_t</span> bob = <span class="string">L&#x27;F&#x27;</span>;</span><br><span class="line">wcout &lt;&lt; <span class="string">L&quot;tall&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>任何数字值或指针值都可以被<strong>隐式转换</strong>（即不用显式强制转换）为<strong>bool</strong>值</p>
+</li>
+<li><p><strong><code>const</code>限定符</strong></p>
+</li>
+</ol>
+<p> 格式:<code>const type name = value;</code>如<code>const int MONTHS = 12;</code>则程序可以用<code>MONTHS</code>代替<code>12</code>，<code>MONTHS</code>被初始化后不能更改</p>
+<ol start="11">
+<li>强制转换的通用格式</li>
+</ol>
+<p>   <img src="https://github.com/avvount/Picture-Bed/raw/master/%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt="强制类型转换"><br>   第一种格式来自C语言，第二种格式是纯粹的C++。新格式的想法是，要让强制类型转换就像是函数调用。这样对内置类型的强制类型转换就像是为用户定义的类设计的类型转换。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/04/14/Notes-of-C++-Primer-Plus/" data-id="clbadhxkm000vl0oveu86facq" data-title="Notes of C++ Primer Plus" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/doc/2017/09/19/debug%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          debug命令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Arch/" rel="tag">Arch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Crossover/" rel="tag">Crossover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VBox/" rel="tag">VBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/transmission/" rel="tag">transmission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" rel="tag">现代控制理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="tag">自动控制原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/doc/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/doc/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/doc/tags/C/" style="font-size: 10px;">C#</a> <a href="/doc/tags/C/" style="font-size: 11.67px;">C++</a> <a href="/doc/tags/Crossover/" style="font-size: 10px;">Crossover</a> <a href="/doc/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 11.67px;">C语言</a> <a href="/doc/tags/K8s/" style="font-size: 10px;">K8s</a> <a href="/doc/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/doc/tags/Python/" style="font-size: 10px;">Python</a> <a href="/doc/tags/VBox/" style="font-size: 10px;">VBox</a> <a href="/doc/tags/VPS/" style="font-size: 16.67px;">VPS</a> <a href="/doc/tags/Windows/" style="font-size: 11.67px;">Windows</a> <a href="/doc/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/doc/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/doc/tags/transmission/" style="font-size: 10px;">transmission</a> <a href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 13.33px;">单片机原理</a> <a href="/doc/tags/%E6%B1%87%E7%BC%96/" style="font-size: 13.33px;">汇编</a> <a href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" style="font-size: 10px;">现代控制理论</a> <a href="/doc/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">自动控制原理</a> <a href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 18.33px;">计算机原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/mark/">mark</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Avvount<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/doc/" class="mobile-nav-link">Home</a>
+  
+    <a href="/doc/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/doc/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/doc/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/doc/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

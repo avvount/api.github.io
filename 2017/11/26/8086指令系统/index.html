@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>8086指令系统 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="指令是使计算机执行某种特定操作的二进制编码。8086 CPU指令系统有133条指令，通常分为数据寻址方式和程序寻址方式8086指令不定长，一般为1～6个字节。 数据寻址方式隐含寻址指令已经默认对CPU中的某个寄存器进行操作，不用在指令中指明所使用的寄存器，即隐含了规定的操作数，这样的寻址方式称为隐含寻址。 立即数寻址寄存器寻址存储器操作数寻址  执行单元EU根据指令中给出的寻址方式计算出16位的偏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8086指令系统">
+<meta property="og:url" content="https://avvount.github.io/doc/2017/11/26/8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="指令是使计算机执行某种特定操作的二进制编码。8086 CPU指令系统有133条指令，通常分为数据寻址方式和程序寻址方式8086指令不定长，一般为1～6个字节。 数据寻址方式隐含寻址指令已经默认对CPU中的某个寄存器进行操作，不用在指令中指明所使用的寄存器，即隐含了规定的操作数，这样的寻址方式称为隐含寻址。 立即数寻址寄存器寻址存储器操作数寻址  执行单元EU根据指令中给出的寻址方式计算出16位的偏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3595893-7a33355a9910a24b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3595893-d11f4a6cc9d64a1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2017-11-26T02:34:44.000Z">
+<meta property="article:modified_time" content="2022-12-05T05:49:35.353Z">
+<meta property="article:author" content="Avvount">
+<meta property="article:tag" content="汇编">
+<meta property="article:tag" content="计算机原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3595893-7a33355a9910a24b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/doc/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/doc/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/doc/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/doc/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/doc/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/doc/">Home</a>
+        
+          <a class="main-nav-link" href="/doc/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/doc/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://avvount.github.io/doc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-8086指令系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/11/26/8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2017-11-26T02:34:44.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      8086指令系统
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>指令</strong>是使计算机执行某种特定操作的二进制编码。<br>8086 CPU指令系统有133条指令，通常分为<strong>数据寻址方式和程序寻址方式</strong><br>8086指令不定长，一般为1～6个字节。</p>
+<h1 id="数据寻址方式"><a href="#数据寻址方式" class="headerlink" title="数据寻址方式"></a>数据寻址方式</h1><h2 id="隐含寻址"><a href="#隐含寻址" class="headerlink" title="隐含寻址"></a>隐含寻址</h2><p>指令已经默认对CPU中的某个寄存器进行操作，不用在指令中指明所使用的寄存器，即隐含了规定的操作数，这样的寻址方式称为隐含寻址。</p>
+<h2 id="立即数寻址"><a href="#立即数寻址" class="headerlink" title="立即数寻址"></a>立即数寻址</h2><h2 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h2><h2 id="存储器操作数寻址"><a href="#存储器操作数寻址" class="headerlink" title="存储器操作数寻址"></a>存储器操作数寻址</h2><p>  执行单元EU根据指令中给出的寻址方式计算出16位的偏移量，称为<strong>有效地址(EA)<strong>送到总线接口单元BIU，经过加法器生成20位实际物理地址，在存储器读写总线周期对存储器进行操作，</strong>一般在表示EA时，用 [操作数] 表示</strong>。<br>  由于计算EA需要时间，进行总线操作比较慢，因此存储器操作寻址比前三种要慢。</p>
+<ul>
+<li><p>直接寻址<br>例：MOV    SI, [2000H]<br>默认使用DS段，若需使用其他段可使用段超越：MOV   SI, ES:[2000H]</p>
+</li>
+<li><p>寄存器间接寻址<br>可间接寻址的寄存器有：<strong>BX、BP、SI、DI</strong><br>例：MOV  AL, [BX]</p>
+<ul>
+<li>BX用于间接寻址时，默认段寄存器为DS，允许段超越  </li>
+<li>BP用于间接寻址时，默认段寄存器为SS，允许段超越  </li>
+<li>SI用于间接寻址时，默认段寄存器为DS，允许段超越  </li>
+<li>DI用于间接寻址时，只有在串操作指令中，默认段寄存器为ES,其余情况默认段寄存器均为DS，不允许段超越<br><strong>注：</strong>IP只能在代码段中(CS)寻址，SP只能在堆栈段(SS)中寻址</li>
+</ul>
+</li>
+<li><p>寄存器相对寻址</p>
+<ul>
+<li>基址寻址</li>
+</ul>
+</li>
+</ul>
+<p>操作数的有效地址是一个基址寄存器的内容加上一个8位或者16位的偏移量，<strong>基址寄存器是BX或者BP</strong>。<br>例：MOV   AX,[BX+1000H]<br>有时也写成 MOV  AX,1000H[BX]或MOV  AX,[BX]1000H</p>
+<ul>
+<li><p>变址寻址<br>操作数的有效地址是一个变址寄存器的内容加上一个8位或者16位的偏移量，<strong>变址寄存器是SI和DI</strong><br>例：MOV   AX, ARRAY[SI]  </p>
+</li>
+<li><p>基址加变址寻址<br>操作数的有效地址是由基址寄存器和变址寄存器的内容相加产生<br>例：MOV   AX, [BP+SI]  </p>
+</li>
+<li><p>相对的基址加变址寻址<br>操作数的有效地址是由<strong>基址寄存器、变址寄存器和偏移量</strong>三者相加产生<br>例：MOV   AX, [BX+SI+3H]<br>也可写成MOV  AX,3H[BX][SI]或MOV  AX,3H[BX+SI]  </p>
+</li>
+<li><p>数据串寻址<br>DS:SI指示源串，ES:DI指示目的串，串长度计数用CX，并自动修改指针和计数器值，只用于串操作命令<br>例：MOVSB   ;((ES:DI))&lt;-((DS:SI))，CX&#x3D;CX-1，SI&#x3D;SI+1,DI&#x3D;DI+1</p>
+</li>
+</ul>
+<h2 id="I-x2F-O端口寻址"><a href="#I-x2F-O端口寻址" class="headerlink" title="I&#x2F;O端口寻址"></a>I&#x2F;O端口寻址</h2><p>操作数存放在I&#x2F;O端口中，指令执行时必须通过累加器（AX或AL）实现对端口的访问</p>
+<ol>
+<li><p>直接端口寻址<br>指令直接提供8位端口的地址。<br>例：IN   AL, 63H<br>当端口地址用一个字节来表示时,可使用直接端口寻址</p>
+</li>
+<li><p>间接端口寻址<br>由DX寄存器给出16位端口地址。<br>例：MOV  DX, 162H<br>IN   AX, DX</p>
+</li>
+</ol>
+<h1 id="程序寻址方式"><a href="#程序寻址方式" class="headerlink" title="程序寻址方式"></a>程序寻址方式</h1><h2 id="段内直接寻址"><a href="#段内直接寻址" class="headerlink" title="段内直接寻址"></a>段内直接寻址</h2><ol>
+<li><p>短跳转：把IP的内容加上一个字节的补码数作为新的IP，往前最多跳-128个字节，往后最多跳127个字节。</p>
+</li>
+<li><p>近跳转：把IP的内容加上两个字节的补码数作为新的IP，往前最多跳-32768个字节，往后最多跳32767个字节。</p>
+</li>
+</ol>
+<h2 id="段内间接寻址"><a href="#段内间接寻址" class="headerlink" title="段内间接寻址"></a>段内间接寻址</h2><p>将寄存器或存储器操作数的内容赋给IP</p>
+<h2 id="段间直接寻址"><a href="#段间直接寻址" class="headerlink" title="段间直接寻址"></a>段间直接寻址</h2><p>直接在指令中给出新的CS和IP内容</p>
+<h2 id="段间间接寻址"><a href="#段间间接寻址" class="headerlink" title="段间间接寻址"></a>段间间接寻址</h2><p>用存储器操作数的内容赋给CS和IP</p>
+<h1 id="8086指令格式"><a href="#8086指令格式" class="headerlink" title="8086指令格式"></a>8086指令格式</h1><p>指令一般由1～6个字节组成，具体格式如下图：<br><img src="http://upload-images.jianshu.io/upload_images/3595893-7a33355a9910a24b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png">  </p>
+<h2 id="字节1"><a href="#字节1" class="headerlink" title="字节1"></a>字节1</h2><ul>
+<li><p>OPCODE：指令操作码</p>
+</li>
+<li><p>D：操作数传输方向(立即数指令和串操作指令除外)</p>
+<ul>
+<li>D&#x3D;0，Reg为源操作数</li>
+<li>D&#x3D;1，Reg为目的操作数</li>
+</ul>
+</li>
+<li><p>W：操作数字节长度</p>
+<ul>
+<li>W&#x3D;0，字节操作</li>
+<li>W&#x3D;1，字操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="字节2，寻址方式"><a href="#字节2，寻址方式" class="headerlink" title="字节2，寻址方式"></a>字节2，寻址方式</h2><ul>
+<li>MOD：寻址方式字段<ul>
+<li>00＝存储器方式，指令中无偏移量</li>
+<li>01＝存储器方式，指令中有8位偏移量</li>
+<li>10＝存储器方式，指令中有16位偏移量</li>
+<li>11＝寄存器方式，指令中无偏移量</li>
+</ul>
+</li>
+<li>Reg：寄存器编码字段</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>000&#x3D;AL&#x2F;AX</th>
+<th>100&#x3D;AH&#x2F;SP</th>
+<th>001&#x3D;CL&#x2F;CX</th>
+<th>101&#x3D;CH&#x2F;BP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>010&#x3D;DL&#x2F;DX</td>
+<td>110&#x3D;DH&#x2F;SI</td>
+<td>011&#x3D;BL&#x2F;BX</td>
+<td>111&#x3D;BH&#x2F;DI</td>
+</tr>
+</tbody></table>
+<ul>
+<li>R&#x2F;M：寄存器&#x2F;存储器字段<ul>
+<li>在MOD&#x3D;11,寄存器模式下，R&#x2F;M给出第二个操作数的寄存器编码  </li>
+<li>在MOD≠11,存储器模式下，R&#x2F;M给出计算有效地址的方法。<br><img src="http://upload-images.jianshu.io/upload_images/3595893-d11f4a6cc9d64a1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="字节3～字节6"><a href="#字节3～字节6" class="headerlink" title="字节3～字节6"></a>字节3～字节6</h2><p><strong>DISP</strong>：存储器操作数地址偏移量，长度由MOD字段定义</p>
+<p><strong>DATA</strong>：指令中的立即数</p>
+<h1 id="8086指令系统"><a href="#8086指令系统" class="headerlink" title="8086指令系统"></a>8086指令系统</h1><h2 id="操作数符号表示"><a href="#操作数符号表示" class="headerlink" title="操作数符号表示"></a>操作数符号表示</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DST</td>
+<td>目的操作数</td>
+</tr>
+<tr>
+<td>SRC</td>
+<td>源操作数</td>
+</tr>
+<tr>
+<td>TARGET</td>
+<td>循环、转移和调用指令操作数</td>
+</tr>
+<tr>
+<td>IMM</td>
+<td>立即操作数，字节或字</td>
+</tr>
+<tr>
+<td>ACC</td>
+<td>累加器AL或AX</td>
+</tr>
+<tr>
+<td>reg</td>
+<td>寄存器操作数</td>
+</tr>
+<tr>
+<td>seg_reg</td>
+<td>段寄存器</td>
+</tr>
+<tr>
+<td>MEM</td>
+<td>存储器操作数</td>
+</tr>
+<tr>
+<td>short_label</td>
+<td>短标号（8位偏移量）</td>
+</tr>
+<tr>
+<td>near_label</td>
+<td>近标号（16位地址或偏移）</td>
+</tr>
+<tr>
+<td>far_label</td>
+<td>远标号（32位地址）</td>
+</tr>
+</tbody></table>
+<h2 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h2><h3 id="通用数据传送指令"><a href="#通用数据传送指令" class="headerlink" title="通用数据传送指令"></a>通用数据传送指令</h3><p>MOV  DST,SRC</p>
+<h3 id="堆栈及堆栈操作"><a href="#堆栈及堆栈操作" class="headerlink" title="堆栈及堆栈操作"></a>堆栈及堆栈操作</h3><p>堆栈是一种按先进后出（FILO）原则存取的存储器，它由堆栈指针寄存器SS:SP和RAM中的一部分组成，主要用于子程序调用或中断子程序的现场保护和恢复，以及参数传递等。<br>SP的内容总是指向栈顶，即最后推入信息所在单元。</p>
+<ul>
+<li><p>进栈指令		PUSH  SRC</p>
+</li>
+<li><p>出栈指令		POP  DST</p>
+</li>
+<li><p>交换指令		XCHG  DST,SRC</p>
+</li>
+<li><p>累加器专用传送指令</p>
+</li>
+<li><p>输入指令	IN  AL&#x2F;AX,<strong>PORT</strong>&#x2F;DX</p>
+</li>
+<li><p>输出指令	OUT  <strong>PORT</strong>&#x2F;DX,AL&#x2F;AX<br>   <strong>PORT</strong>为8位直接地址</p>
+</li>
+<li><p>换码指令		XLAT ： (AL)←((BX)+(AL))</p>
+</li>
+<li><p>地址传送指令</p>
+<ul>
+<li>有效地址传送指令		<strong>LEA  reg16,SRC</strong>:(reg16) ←SRC</li>
+<li>指针送寄存器和DS  <strong>LDS  reg16,mem32</strong>	：(reg16) ←(mem32)； (DS) ←(mem32+2)</li>
+<li>指针送寄存器和ES  <strong>LES  reg16,mem32</strong> ：(reg16) ←(mem32); (ES) ←(mem32+2)</li>
+</ul>
+</li>
+<li><p>标志寄存器传送</p>
+<ul>
+<li><strong>LAHF</strong>	:		(AH) ←(flag低字节)</li>
+<li><strong>SAHF</strong>	:		(flag低字节) ←(AH)</li>
+<li><strong>PUSHF</strong>	:		(SP) ←(SP)-2,  ((SP)+1),(SP)) ←flag</li>
+<li><strong>POPF</strong>	:		flag ←((SP)+1),(SP)), (SP) ←(SP)+2</li>
+</ul>
+</li>
+</ul>
+<h2 id="算术指令"><a href="#算术指令" class="headerlink" title="算术指令"></a>算术指令</h2><h3 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h3><ul>
+<li>ADD  DST,SRC ： (DST) ← (SRC) + (DST)</li>
+<li>ADC  DST,SRC ： (DST) ← (SRC) + (DST)+CF</li>
+<li>INC  DST ： (DST) ←(DST)+1	&#x2F;&#x2F;<strong>不影响进位标志CF</strong></li>
+</ul>
+<h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><ul>
+<li>SUB  DST,SRC ： (DST) ←(DST)-(SRC)</li>
+<li>SBB  DST,SRC ： (DST) ←(DST)-(SRC)-CF</li>
+<li>DEC  DST ： (DST) ←(DST)-1	&#x2F;&#x2F;<strong>不影响进位标志CF</strong></li>
+<li>NEG  DST ： (DST)&#x3D;0-(DST)		&#x2F;&#x2F;求补指令</li>
+<li>CMP  DST,SRC ： (DST)-(SRC),仅影响标志	&#x2F;&#x2F;比较指令</li>
+</ul>
+<h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><ul>
+<li><p>无符号数乘法<br>MUL  SRC ： (AX) ←(AL)*(SRC)或(DX,AX) ←(AX)*(SRC)</p>
+</li>
+<li><p>有符号数乘法<br>IMUL  SRC ： (AX) ←(AL)*(SRC)或(DX,AX) ←(AX)*(SRC)</p>
+</li>
+</ul>
+<h3 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h3><p>除数必须为被除数一半字长</p>
+<ul>
+<li><p>无符号数除法指令	DIV  SRC<br>(AL) ←(AX)&#x2F;(SRC)；(AH) ←(AX)%(SRC)<br>或(AX)←(DX,AX)&#x2F;(SRC)；(DX) ←(DX,AX)%(SRC)</p>
+</li>
+<li><p>有符号数除法指令	IDIV  SRC ： 操作与DIV相同</p>
+</li>
+</ul>
+<h3 id="类型转换指令"><a href="#类型转换指令" class="headerlink" title="类型转换指令"></a>类型转换指令</h3><ul>
+<li><p>字节转换成字指令（有符号数）CBW<br>若(AL) &lt;80H则(AH)←0，否则(AH) ←FFH即将AL符号位扩展到AH</p>
+</li>
+<li><p>有符号字转换成双字指令CWD<br>若(AX)&lt;8000H,则(DX) ←0,否则(DX) ←FFFFH</p>
+</li>
+</ul>
+<h3 id="BCD码调整指令"><a href="#BCD码调整指令" class="headerlink" title="BCD码调整指令"></a>BCD码调整指令</h3><p>加减运算非压缩BCD码高4位的值可不为0，乘除时高4位必须是0。</p>
+<ul>
+<li><p>压缩BCD码调整指令</p>
+<ul>
+<li>DAA ：对BCD码加法运算结果(AL)进行调整。</li>
+<li>DAS ：对BCD码减法运算结果(AL)进行调整。</li>
+</ul>
+</li>
+<li><p>非压缩BCD码调整</p>
+<ul>
+<li>AAA ：对非压缩BCD码加法运算结果进行调整，进位送(AH)中</li>
+<li>AAS ：对非压缩BCD码减法运算结果进行调整</li>
+<li>AAM ：对非压缩BCD码乘法运算进行调整</li>
+<li>AAD ：对非压缩BCD码除法运算进行调整</li>
+</ul>
+</li>
+</ul>
+<h2 id="逻辑指令"><a href="#逻辑指令" class="headerlink" title="逻辑指令"></a>逻辑指令</h2><h3 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h3><ul>
+<li>AND  DST,SRC			(DST) ←(DST)&amp;(SRC)</li>
+<li>OR  DST,SRC			(DST) ←(DST)|(SRC)</li>
+<li>NOT  DST				~DST</li>
+<li>XOR  DST,SRC			(DST) ←(DST)^(SRC)&#x2F;&#x2F;异或</li>
+<li>TEST  DST,SRC			(DST)&amp;(SRC),仅影响标志位</li>
+</ul>
+<h3 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h3><ul>
+<li>逻辑左移指令  SHL  DST,count ：DST左移count位，每左移一位，最低位补0，最高位进入CF  </li>
+<li>算术左移指令  SAL  DST,count ：同SHL  </li>
+<li>逻辑右移指令  SHR  DST,count ：最高位添零，最低位进入CF  </li>
+<li>算术右移指令  SAR  DST,count ：最高位不变，最低位进入CF  </li>
+<li>循环左移指令  ROL  DST,count ：最高位进入CF和最低位  </li>
+<li>循环右移指令  ROR  DST,count ：最低位进入CF和最高位  </li>
+<li>带进位循环左移指令  RCL  DST,count  </li>
+<li>带进位循环右移指令  RCR  DST,count  <ul>
+<li>count可以为1，也可以为CL做移位计数</li>
+</ul>
+</li>
+</ul>
+<h2 id="串处理指令"><a href="#串处理指令" class="headerlink" title="串处理指令"></a>串处理指令</h2><h3 id="数据串传送指令"><a href="#数据串传送指令" class="headerlink" title="数据串传送指令"></a>数据串传送指令</h3><p><strong>唯一</strong>的目的操作数和源操作数都在存储器中的指令</p>
+<ul>
+<li><p>串传送指令 MOVSB&#x2F;MOVSW  ：DST与SRC做类型检查</p>
+<ul>
+<li>MOVSB ： ((ES:DI)) ←((DS:SI)),(SI) ←(SI)±1, (DI)←(DI)±1</li>
+<li>MOVSW ：((ES:DI)) ←((DS:SI)),(SI) ←(SI)±2, (DI) ←(DI)±2<br>其中，加、减地址指针SI和DI由FLAG中的DF决定，DF&#x3D;0地址增加，DF&#x3D;1地址减小。</li>
+</ul>
+</li>
+<li><p>建立方向标志指令</p>
+<ul>
+<li>CLD  ;DF←0</li>
+<li>STD  ;DF←1</li>
+</ul>
+</li>
+<li><p>REP重复前缀<br>例：REP  MOVSB ：以CX寄存器做计数器，每传送一个数(CX)减1，直到(CX)为0<br>REPZ&#x2F;REPE : 若(CX)≠0且ZF&#x3D;1时继续执行，否则退出<br>REPNZ&#x2F;REPNE : 若(CX)≠0且ZF&#x3D;0（比较不相等）时继续执行，否则退出  </p>
+</li>
+<li><p>存入串指令  STOSB&#x2F;STOSW ： DST做类型检查</p>
+<ul>
+<li>STOSB ： ((ES:DI)) ←(AL), (DI) ←(DI)±1  </li>
+<li>STOSW ： ((ES:DI)) ←(AX),(DI) ←(DI)±2<br>  由DF决定方向，可加入前缀REP</li>
+</ul>
+</li>
+<li><p>从串中取指令  LODSB&#x2F;LODSW  ：SRC做类型检查  </p>
+<ul>
+<li>LODSB ： (AL) ←((DS:SI)) , (SI) ←(SI)±1  </li>
+<li>LODSW ： (AX) ←((DS:SI)) ,(SI) ←(SI)±2<br>  地址增减由DF决定</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串扫描和比较指令"><a href="#字符串扫描和比较指令" class="headerlink" title="字符串扫描和比较指令"></a>字符串扫描和比较指令</h3><ul>
+<li><p>串比较指令 CMPS       : SRC和DST仅做类型检查</p>
+<ul>
+<li>CMPSB ;((DS:SI))-((ES:DI)),  (SI) ←(SI)±1, (DI) ←(DI)±1</li>
+<li>CMPSW ;((DS:SI))-((ES:DI)),  (SI) ←(SI)±2, (DI) ←(DI)±2<br>串比较仅影响标志,地址增减由DF决定。</li>
+</ul>
+</li>
+<li><p>串扫描指令 SCAS       : DST做类型检查</p>
+<ul>
+<li>SCASB ： (AL)-((ES:DI)) ，(DI) ←(DI)±1</li>
+<li>SCASW ： (AX)-((ES:DI)) ,(DI) ←(DI)±2<br>仅影响标志，地址增减由DF决定，可加条件前缀。</li>
+</ul>
+</li>
+</ul>
+<h2 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h2><h3 id="无条件转移指令：JMP-TARGET"><a href="#无条件转移指令：JMP-TARGET" class="headerlink" title="无条件转移指令：JMP  TARGET"></a>无条件转移指令：JMP  TARGET</h3><ul>
+<li>JMP  short_label ：(IP)&lt;-(IP)+short_label  短跳转  </li>
+<li>JMP  near_label ：(IP)&lt;-(IP)+near_label 近跳转  </li>
+<li>JMP  far_label ：(CS:IP)&lt;-far_label 远跳转</li>
+</ul>
+<h3 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h3><ul>
+<li>根据单个标志转移</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>含义</th>
+<th>测试条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JZ  short_label</td>
+<td>结果为0转移</td>
+<td>ZF&#x3D;1</td>
+</tr>
+<tr>
+<td>JE  short_label</td>
+<td>结果相等转移</td>
+<td>ZF&#x3D;1</td>
+</tr>
+<tr>
+<td>JNZ  short_label</td>
+<td>结果不为0则转移</td>
+<td>ZF&#x3D;0</td>
+</tr>
+<tr>
+<td>JNE  short_label</td>
+<td>结果不相等则转移</td>
+<td>ZF&#x3D;0</td>
+</tr>
+<tr>
+<td>JS  short_label</td>
+<td>结果为负则转移</td>
+<td>SF&#x3D;1</td>
+</tr>
+<tr>
+<td>JNS  short_label</td>
+<td>结果非负则转移</td>
+<td>SF&#x3D;0</td>
+</tr>
+<tr>
+<td>JNO  short_label</td>
+<td>结果不溢出则转移</td>
+<td>OF&#x3D;0</td>
+</tr>
+<tr>
+<td>JO  short_label</td>
+<td>结果溢出则转移</td>
+<td>OF&#x3D;1</td>
+</tr>
+<tr>
+<td>JP  short_label</td>
+<td>奇偶为1则转移</td>
+<td>PF&#x3D;1</td>
+</tr>
+<tr>
+<td>JPE  short_label</td>
+<td>偶转移</td>
+<td>PF&#x3D;1</td>
+</tr>
+<tr>
+<td>JNP  short_label</td>
+<td>奇偶为0则转移</td>
+<td>PF&#x3D;0</td>
+</tr>
+<tr>
+<td>JPO  short_label</td>
+<td>奇转移</td>
+<td>PF&#x3D;0</td>
+</tr>
+<tr>
+<td>JB  short_label</td>
+<td>有借位转移</td>
+<td>CF&#x3D;1</td>
+</tr>
+<tr>
+<td>JNAE  short_label</td>
+<td>不大于等于转移</td>
+<td>CF&#x3D;1</td>
+</tr>
+<tr>
+<td>JC  short_label</td>
+<td>有进位转移</td>
+<td>CF&#x3D;1</td>
+</tr>
+<tr>
+<td>JNB  short_label</td>
+<td>无借位转移</td>
+<td>CF&#x3D;0</td>
+</tr>
+<tr>
+<td>JAE  short_label</td>
+<td>大于等于转移</td>
+<td>CF&#x3D;0</td>
+</tr>
+<tr>
+<td>JNC  short_label</td>
+<td>无进位转移</td>
+<td>CF&#x3D;0</td>
+</tr>
+</tbody></table>
+<ul>
+<li>两个无符号数比较转移</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A大于</th>
+<th>B小于</th>
+<th>E等于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JB&#x2F;JNAE&#x2F;JC</td>
+<td>CF&#x3D;1</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>JNB&#x2F;JAE&#x2F;JNC</td>
+<td>CF&#x3D;0</td>
+<td>不小于</td>
+</tr>
+<tr>
+<td>JBE&#x2F;JNA</td>
+<td>CF&amp;#124;ZF&#x3D;1</td>
+<td>不大于</td>
+</tr>
+<tr>
+<td>JNBE&#x2F;JA</td>
+<td>CF&amp;#124;ZF&#x3D;0</td>
+<td>大于</td>
+</tr>
+</tbody></table>
+<ul>
+<li>两个有符号数比较转移</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>G大于</th>
+<th>L小于</th>
+<th>E等于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JL&#x2F;JNGE</td>
+<td>SF^OF&#x3D;1</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>JNL&#x2F;JGE</td>
+<td>SF^OF&#x3D;0</td>
+<td>不小于</td>
+</tr>
+<tr>
+<td>JNLE&#x2F;JG</td>
+<td>(SF^OF)&amp;#124;ZF&#x3D;0</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>JLE &#x2F;JNG</td>
+<td>(SF^OF)&amp;#124;ZF&#x3D;1</td>
+<td>不大于</td>
+</tr>
+</tbody></table>
+<ul>
+<li>测试CX值，为0则转移<br>JCXZ  short_label  ：(CX)&#x3D;0则转移</li>
+</ul>
+<h3 id="循环指令"><a href="#循环指令" class="headerlink" title="循环指令"></a>循环指令</h3><ul>
+<li>LOOP  short_label ： (CX) ←(CX)-1,(CX)≠0则转移</li>
+<li>LOOPZ&#x2F;LOOPE  short_label ： (CX) ←(CX)-1,(CX)≠0且ZF&#x3D;1则转移<br>LOOPNZ&#x2F;LOOPNE  short_label ：(CX) ←(CX)-1,(CX)≠0且ZF&#x3D;0则转移</li>
+</ul>
+<h3 id="子程序调用与返回"><a href="#子程序调用与返回" class="headerlink" title="子程序调用与返回"></a>子程序调用与返回</h3><ul>
+<li><p>子程序调用指令  CALL  TARGET<br>具体指令  </p>
+<ul>
+<li>CALL  near_proc;段内调用  </li>
+<li>CALL  far_proc;段间调用  </li>
+<li>CALL  mem16&#x2F;regp16&#x2F;mem32</li>
+</ul>
+</li>
+<li><p>返回指令  RET</p>
+</li>
+<li><p>带立即数返回 RET   IMM16<br>在RET指令的基础上，当从堆栈中弹出IP和CS后，再将SP加上一个字的立即数，使得返回后(SP) ← (SP) + IMM16</p>
+</li>
+</ul>
+<h2 id="中断调用与返回"><a href="#中断调用与返回" class="headerlink" title="中断调用与返回"></a>中断调用与返回</h2><h3 id="中断调用"><a href="#中断调用" class="headerlink" title="中断调用"></a>中断调用</h3><ul>
+<li><p>INT     n<br>依次将FLAG，当前CS和IP（即断点地址）放入堆栈，清除IF和TF。执行中断类型码为n的中断服务程序。<br>注： INT  n 的机器码为 CDH  n，INT  3 的机器码特殊，为 CCH</p>
+</li>
+<li><p>INTO<br>在有符号数运算结束以后，可以使用INTO，若OF&#x3D;1，则执行中断指令INT  4，否则无操作。</p>
+</li>
+</ul>
+<h3 id="中断返回指令"><a href="#中断返回指令" class="headerlink" title="中断返回指令"></a>中断返回指令</h3><ul>
+<li>IRET<br>从中断程序返回主程序，恢复断点和FLAG</li>
+</ul>
+<h2 id="控制类指令"><a href="#控制类指令" class="headerlink" title="控制类指令"></a>控制类指令</h2><h3 id="标志处理指令"><a href="#标志处理指令" class="headerlink" title="标志处理指令"></a>标志处理指令</h3><ul>
+<li>CLC&#x2F;STC&#x2F;CMC     对CF 清0 &#x2F; 置位 &#x2F;取反  </li>
+<li>CLD&#x2F;STD	              对DF 清0 &#x2F; 置位  </li>
+<li>CLI&#x2F;STI	              对IF  清0 &#x2F; 置位</li>
+</ul>
+<h3 id="处理器控制指令"><a href="#处理器控制指令" class="headerlink" title="处理器控制指令"></a>处理器控制指令</h3><table>
+<thead>
+<tr>
+<th>NOP</th>
+<th>空操作指令</th>
+<th>占用一个字节的机器码，不执行任何操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HLT</td>
+<td>(Halt)停机指令</td>
+<td>该指令使处理器处于停机状态，以便等待一次外部中断到来</td>
+</tr>
+<tr>
+<td>WAIT</td>
+<td>等待指令</td>
+<td>该指令使处理器处于空转状态，也可用来等待外部中断的到来</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>(Escape)换码指令,用作前缀</td>
+<td>格式：ESC MEM，其中MEM指出一个存储单元，ESC指令把该存储单元的内容送到数据总线去</td>
+</tr>
+<tr>
+<td>LOCK</td>
+<td>封锁指令,用作前缀</td>
+<td>该指令与其他指令联合，用来维持总线的封锁信号直到与其联合的指令执行完为止</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/11/26/8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" data-id="clbadhxk00003l0ov7n0h87jc" data-title="8086指令系统" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/doc/2018/01/01/Arch-installation-guide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Arch安装步骤
+        
+      </div>
+    </a>
+  
+  
+    <a href="/doc/2017/11/01/16%E4%BD%8D%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A88086/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">16位微处理器8086</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Arch/" rel="tag">Arch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Crossover/" rel="tag">Crossover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VBox/" rel="tag">VBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/transmission/" rel="tag">transmission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" rel="tag">现代控制理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="tag">自动控制原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/doc/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/doc/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/doc/tags/C/" style="font-size: 10px;">C#</a> <a href="/doc/tags/C/" style="font-size: 11.67px;">C++</a> <a href="/doc/tags/Crossover/" style="font-size: 10px;">Crossover</a> <a href="/doc/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 11.67px;">C语言</a> <a href="/doc/tags/K8s/" style="font-size: 10px;">K8s</a> <a href="/doc/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/doc/tags/Python/" style="font-size: 10px;">Python</a> <a href="/doc/tags/VBox/" style="font-size: 10px;">VBox</a> <a href="/doc/tags/VPS/" style="font-size: 16.67px;">VPS</a> <a href="/doc/tags/Windows/" style="font-size: 11.67px;">Windows</a> <a href="/doc/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/doc/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/doc/tags/transmission/" style="font-size: 10px;">transmission</a> <a href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 13.33px;">单片机原理</a> <a href="/doc/tags/%E6%B1%87%E7%BC%96/" style="font-size: 13.33px;">汇编</a> <a href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" style="font-size: 10px;">现代控制理论</a> <a href="/doc/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">自动控制原理</a> <a href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 18.33px;">计算机原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/mark/">mark</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Avvount<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/doc/" class="mobile-nav-link">Home</a>
+  
+    <a href="/doc/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/doc/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/doc/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/doc/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

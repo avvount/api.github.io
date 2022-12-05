@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://avvount.github.io/doc/page/6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Avvount">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/doc/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/doc/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/doc/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/doc/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/doc/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/doc/">Home</a>
+        
+          <a class="main-nav-link" href="/doc/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/doc/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://avvount.github.io/doc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-16位微处理器8086" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/11/01/16%E4%BD%8D%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A88086/" class="article-date">
+  <time class="dt-published" datetime="2017-11-01T02:34:34.000Z" itemprop="datePublished">2017-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/11/01/16%E4%BD%8D%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A88086/">16位微处理器8086</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/avvount/Picture-Bed/raw/master/8086CPU.png" alt="8086结构图"></p>
+<h2 id="执行单元-EU－Execution-Unit"><a href="#执行单元-EU－Execution-Unit" class="headerlink" title="执行单元(EU－Execution Unit)"></a>执行单元(EU－Execution Unit)</h2><p>负责指令的译码和执行。</p>
+<h3 id="4个16位数据寄存器（AX、BX、CX、DX）"><a href="#4个16位数据寄存器（AX、BX、CX、DX）" class="headerlink" title="4个16位数据寄存器（AX、BX、CX、DX）"></a>4个16位数据寄存器（AX、BX、CX、DX）</h3><p>AX和AL可用作累加操作，因此又称作<strong>累加器</strong></p>
+<h3 id="4个16位地址指针寄存器：通常用于存放操作数偏移地址"><a href="#4个16位地址指针寄存器：通常用于存放操作数偏移地址" class="headerlink" title="4个16位地址指针寄存器：通常用于存放操作数偏移地址"></a>4个16位地址指针寄存器：通常用于存放操作数偏移地址</h3><ol>
+<li><strong>SP</strong> (Stack Pointer)—堆栈指针寄存器，指示堆栈段栈顶位置</li>
+<li><strong>BP</strong> (Base Pointer)—基址指针寄存器，指示堆栈段数据区基址</li>
+<li><strong>SI</strong> (Source Index)—源变址寄存器，指示数据段源串地址</li>
+<li><strong>DI</strong>(Destination Index)—目的变址寄存器，指示扩展段目的串地址</li>
+</ol>
+<h3 id="标志寄存器-FLAG"><a href="#标志寄存器-FLAG" class="headerlink" title="标志寄存器 FLAG"></a>标志寄存器 FLAG</h3><p><img src="http://upload-images.jianshu.io/upload_images/3595893-7c6ccb83ff3f8b73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><p>状态标志</p>
+<ol>
+<li><strong>CF</strong>（Carry Flag）进(借)位标志，加法运算最高位产生进位或减法运算最高位产生借位，表示无符号数运算产生溢出，CF置1，否则置0</li>
+<li><strong>AF</strong>（Auxiliary Carry Flag）辅助进位标志，加法运算时第3位往第4位有进位，或减法运算时第3位往第4位有借位，则AF置1，否则置0</li>
+<li><strong>ZF</strong> (Zero Flag）零标志, 若当前运算结果为零, 则ZF置1,否则置0</li>
+<li><strong>SF</strong>（Sign Flag）符号标志，与运算结果最高位相同，若为负数，则SF置1，否则置0，SF指示了当前运算结果是正还是负</li>
+<li><strong>OF</strong>（Overflow Flag）溢出标志，有符号数算术运算结果溢出，则OF置1，否则置0</li>
+<li><strong>PF</strong>（Parity Flag）奇偶标志，运算结果低8位所含1个数为偶数则PF置1，否则置0</li>
+</ol>
+</li>
+<li><p>控制标志</p>
+<ol>
+<li><strong>DF</strong>（Direction Flag）方向标志<br> DF&#x3D;1，串操作时，地址不断递减；DF&#x3D;0，串操作时，地址不断递增</li>
+<li><strong>IF</strong>（Interrupt enable Flag）中断允许标志<br> IF&#x3D;1，CPU允许接收可屏蔽中断请求，即开中断；IF&#x3D;0，则关中断</li>
+<li><strong>TF</strong>（Trap Flag）跟踪标志，又称单步标志<br> TF&#x3D;1，CPU为单步工作方式，每执行完一条指令产生一次软件中断</li>
+</ol>
+</li>
+</ul>
+<h2 id="总线接口单元（BIU－Bus-Interface-Unit）"><a href="#总线接口单元（BIU－Bus-Interface-Unit）" class="headerlink" title="总线接口单元（BIU－Bus Interface Unit）"></a>总线接口单元（BIU－Bus Interface Unit）</h2><p>与系统总线连接，实现与存储器、I&#x2F;O口之间的数据传送。  </p>
+<h3 id="4个16位段地址寄存器"><a href="#4个16位段地址寄存器" class="headerlink" title="4个16位段地址寄存器"></a>4个16位段地址寄存器</h3><ol>
+<li>CS (Code Segment)——代码段寄存器，代码段存放代码</li>
+<li>DS (Data Segment）——数据段寄存器，数据段存放数据</li>
+<li>SS (Stack Segment)——堆栈段寄存器，堆栈段用作堆栈操作</li>
+<li>ES (Extra Segment)——扩展段寄存器，扩展段存放数据</li>
+</ol>
+<p>8086对存储器采用分段管理，4个段寄存器分别存放4个当前段的起始地址，又称作段基址寄存器。</p>
+<h3 id="指令指针寄存器IP-Instruction-Pointer"><a href="#指令指针寄存器IP-Instruction-Pointer" class="headerlink" title="指令指针寄存器IP (Instruction Pointer)"></a>指令指针寄存器IP (Instruction Pointer)</h3><p>16位IP存放当前代码段(CS)所要取出的下一条指令的偏移地址</p>
+<h3 id="地址加法器∑"><a href="#地址加法器∑" class="headerlink" title="地址加法器∑"></a>地址加法器∑</h3><p>8086用20位地址线寻址1MB内存空间，但其内部寄存器是16位的，因此需要用地址加法器∑根据16位寄存器的值计算出20位物理地址</p>
+<h3 id="指令缓冲队列"><a href="#指令缓冲队列" class="headerlink" title="指令缓冲队列"></a>指令缓冲队列</h3><p>8086执行指令的同时，会从内存取1条或几条指令，取来的指令就存放在指令队列中</p>
+<h3 id="暂存器"><a href="#暂存器" class="headerlink" title="暂存器"></a>暂存器</h3><p>用于与EU通信的内部寄存器</p>
+<h3 id="总线控制电路"><a href="#总线控制电路" class="headerlink" title="总线控制电路"></a>总线控制电路</h3><p>负责总线操作控制</p>
+<h2 id="存储器和I-x2F-O管理"><a href="#存储器和I-x2F-O管理" class="headerlink" title="存储器和I&#x2F;O管理"></a>存储器和I&#x2F;O管理</h2><h3 id="逻辑地址形式为段地址-偏移地址"><a href="#逻辑地址形式为段地址-偏移地址" class="headerlink" title="逻辑地址形式为	段地址 : 偏移地址"></a>逻辑地址形式为	段地址 : 偏移地址</h3><p><img src="http://upload-images.jianshu.io/upload_images/3595893-9dedb9ee6c2a85d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png">  </p>
+<h3 id="段超越"><a href="#段超越" class="headerlink" title="段超越"></a>段超越</h3><p><img src="http://upload-images.jianshu.io/upload_images/3595893-6fb14eb02fc75bfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png">  </p>
+<h3 id="8086-I-x2F-O编址"><a href="#8086-I-x2F-O编址" class="headerlink" title="8086 I&#x2F;O编址"></a>8086 I&#x2F;O编址</h3><p>8086对I&#x2F;O端口操作，需要专门的IN、OUT指令，并且只能通过累加器（AX&#x2F;AL）来完成<br>例： IN  AL, 80H</p>
+<h3 id="8086系统中，存储器和I-x2F-O端口分别独立编址"><a href="#8086系统中，存储器和I-x2F-O端口分别独立编址" class="headerlink" title="8086系统中，存储器和I&#x2F;O端口分别独立编址"></a>8086系统中，存储器和I&#x2F;O端口分别独立编址</h3><p>存储器的地址范围是00000H – 0FFFFFH<br>I&#x2F;O端口的地址范围是0000H – 0FFFFH</p>
+<h2 id="8086引脚信号和工作模式"><a href="#8086引脚信号和工作模式" class="headerlink" title="8086引脚信号和工作模式"></a>8086引脚信号和工作模式</h2><p><strong>最小模式</strong>：系统中只有一个处理器;$MN&#x2F;\overline{MX}$为高电平<br><strong>最大模式</strong>：系统中包括两个或多个处理器;$MN&#x2F;\overline{MX}$为低电平<br>8086 CPU为40pin双列直插（DIP)封装。</p>
+<h2 id="8086最小模式下引脚信号和功能"><a href="#8086最小模式下引脚信号和功能" class="headerlink" title="8086最小模式下引脚信号和功能"></a>8086最小模式下引脚信号和功能</h2><p><img src="http://upload-images.jianshu.io/upload_images/3595893-08b82fb7613d3f77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png">  </p>
+<h3 id="总线信号"><a href="#总线信号" class="headerlink" title="总线信号"></a>总线信号</h3><ol>
+<li>AD0～AD15: 地址&#x2F;数据复用引脚，双向工作<br>分时传送16位数据和地址的低16位，由ALE锁存地址信息  </li>
+<li>A16～A19（S3～S6）: 地址&#x2F;状态复用引脚，输出<br>分时输出地址的高4位和CPU当前状态，地址信息由ALE锁存  </li>
+<li>$\overline{BHE}&#x2F;S7$: 高8位数据总线允许&#x2F;状态复用引脚，输出<br>低电平有效，表示高8位数据线D15～D8上数据有效</li>
+<li>ALE: 地址锁存允许信号输出<br>高电平有效，表示总线上的信息是地址信息。</li>
+</ol>
+<h3 id="总线控制信号"><a href="#总线控制信号" class="headerlink" title="总线控制信号"></a>总线控制信号</h3><ol>
+<li>HOLD: 总线保持请求信号输入<br>高电平有效，表示其他模块（如DMA)申请占用总线</li>
+<li>HLDA: 总线保持响应信号输出<br>高电平有效，表示CPU已让出总线</li>
+</ol>
+<h3 id="系统控制信号"><a href="#系统控制信号" class="headerlink" title="系统控制信号"></a>系统控制信号</h3><ol>
+<li>$M&#x2F;\overline{IO}$: 存储器&#x2F;输入输出选择信号，输出，高电平表示CPU访问存储器，低电平表示CPU访问I&#x2F;O端口</li>
+<li>$\overline{RD}$: 读信号输出，低电平有效，表示CPU从存储器或I&#x2F;O口读入信息</li>
+<li>$\overline{WR}$: 写信号输出，低电平有效，表示CPU向存储器或I&#x2F;O口输出数据</li>
+<li>$DT&#x2F;\overline{R}$: 数据收发信号输出，高电平表示CPU正在发送数据，低电平表示CPU接收数据</li>
+<li>$\overline{DEN}$: 数据允许信号输出，低电平有效，表示CPU当前准备发送或接收一个数据</li>
+</ol>
+<h3 id="中断控制信号"><a href="#中断控制信号" class="headerlink" title="中断控制信号"></a>中断控制信号</h3><ol>
+<li>INTR: 可屏蔽中断请求信号输入，高电平有效，表示外部向CPU提出中断申请  </li>
+<li>$\overline{INTA}$: 中断响应信号输出，低电平有效，表示CPU响应外设中断请求  </li>
+<li>NMI: 非屏蔽中断请求信号输入，上升沿有效。表示外部有非屏蔽中断申请。非屏蔽中断不受软件控制，CPU必须响应</li>
+</ol>
+<h3 id="CPU控制信号"><a href="#CPU控制信号" class="headerlink" title="CPU控制信号"></a>CPU控制信号</h3><ol>
+<li>RESET: 复位信号输入<br>高电平有效，至少保持4个时钟周期的高电平。复位时CPU停止现行操作，开始复位，并进行初始化：标志寄存器FLAG、IP、DS、SS、ES及指令队列均清零，CS为FFFFH，复位结束时CPU从FFFF0H开始执行程序  </li>
+<li>$MN&#x2F;\overline{MX}$：最小模式&#x2F;最大模式选择信号输入，高电平为最小模式</li>
+<li>READY：“准备好”信号输入，高电平有效，表示存储器或I&#x2F;O口已准备就绪，可进行一次数据传输  </li>
+<li>$\overline{TEST}$: 测试信号输入，低电平有效，有效时CPU退出WAIT指令；</li>
+</ol>
+<h3 id="其它信号"><a href="#其它信号" class="headerlink" title="其它信号"></a>其它信号</h3><ol>
+<li>CLK: 时钟信号，8086主频为4.77MHZ  T&#x3D;210ns；单相，占空比为1&#x2F;3  </li>
+<li>VCC,GND: 电源及地，+5V，满足TTL规范</li>
+</ol>
+<h2 id="8086最小模式下的总线连接"><a href="#8086最小模式下的总线连接" class="headerlink" title="8086最小模式下的总线连接"></a>8086最小模式下的总线连接</h2><h3 id="Intel-8282"><a href="#Intel-8282" class="headerlink" title="Intel 8282"></a>Intel 8282</h3><p>把AD复用引脚连接到地址总线的8位地址锁存器。3片8282(功能同74LS373)A0～A19和$\overline{BHE}$，$ALE$为锁存信号。</p>
+<h3 id="Intel-8286"><a href="#Intel-8286" class="headerlink" title="Intel 8286"></a>Intel 8286</h3><p>把AD复用引脚连接到数据总线的8位数据缓冲器。2片8286(功能同74LS245)做D15～D0的缓冲器，$DT&#x2F;\overline{R}$做方向选择，$\overline{DEN}$为选通信号。</p>
+<h3 id="控制信号-M-x2F-overline-IO-、-overline-RD-和-overline-WR"><a href="#控制信号-M-x2F-overline-IO-、-overline-RD-和-overline-WR" class="headerlink" title="控制信号$M&#x2F;\overline{IO}$、$\overline{RD}$和$\overline{WR}$"></a>控制信号$M&#x2F;\overline{IO}$、$\overline{RD}$和$\overline{WR}$</h3><p> <img src="http://upload-images.jianshu.io/upload_images/3595893-67496b2ec1abb27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="中断控制信号INTR、-overline-INTA-、NMI"><a href="#中断控制信号INTR、-overline-INTA-、NMI" class="headerlink" title="中断控制信号INTR、$\overline{INTA}$、NMI"></a>中断控制信号INTR、$\overline{INTA}$、NMI</h3><ol>
+<li>INTR: 外部可屏蔽中断请求引脚，高电平有效  </li>
+<li>$\overline{INTA}$: 中断响应信号，低电平有效  </li>
+<li>NMI:  不可屏蔽中断请求引脚，上升沿有效</li>
+</ol>
+<h3 id="总线控制信号HOLD、HLDA"><a href="#总线控制信号HOLD、HLDA" class="headerlink" title="总线控制信号HOLD、HLDA"></a>总线控制信号HOLD、HLDA</h3><ol>
+<li>HOLD：总线保持请求引脚,高电平有效  </li>
+<li>HLDA：总线保持响应引脚，高电平有效<br>HLDA控制8282的OE，当CPU总线保持响应时让出总线</li>
+</ol>
+<h2 id="8086操作和时序"><a href="#8086操作和时序" class="headerlink" title="8086操作和时序"></a>8086操作和时序</h2><p>1． 8086时钟电路与复位电路<br><strong>8284</strong>为8086提供CLK时钟信号、 RESET复位信号和READY准备信号<br>8086&#x2F;8088内部无时钟发生器，时钟由8284提供，频率为4.77MHz<br>输入RES经8284内部斯密特触发器整形，同步后产生RESET信号,给CPU复位<br>外界准备好信号输入到8284的RDY端，同步后产生READY信号给CPU  </p>
+<p>2． 8086&#x2F;8088系统的复位操作和启动过程  </p>
+<ul>
+<li>CPU接到RESET信号，停止现有工作，进行复位操作：CS置FFFFH，IP置0，指令队列清空，其余寄存器清0  </li>
+<li>从存储器FFFFH :0000H取第一条指令，一般在此处放一条跳转指令，跳转到ROM BIOS中的系统测试程序  </li>
+<li>系统测试程序执行硬件自检(对CPU、RAM、ROM等硬件进行测试)，然后执行ROM BIOS中的初始引导程序  </li>
+<li>初始引导程序再从磁盘0面0道1扇区装入引导程序，执行引导操作  </li>
+<li>按引导程序的指令，顺序装入其他程序模块，完成操作系统的引导操作</li>
+</ul>
+<p>注：在3、4步之间微机还会检查C0000H开始的扩展ROM空间中是否有程序，如果有，并且校验正确，则先执行这些程序</p>
+<p>3． 8086总线周期  </p>
+<ul>
+<li>时钟周期T（T状态）<br>时钟脉冲的一个循环时间叫做一个时钟周期。每个时钟周期T又称为一个“状态”。它是CPU工作的最小时间单位，是计算机系统工作速度的重要标志。<strong>8086 CPU的F&#x3D;4.77M，T&#x3D;210ns</strong>  </li>
+<li>总线周期<br>CPU通过总线从存储器或I&#x2F;O端口存取一个字或字节的时间称为总线周期。包括三类：存储器读写周期、I&#x2F;O端口读写周期、中断响应周期<br>一个基本总线周期包括4个状态：T1，T2，T3，T4  </li>
+<li>指令周期<br>执行一条指令所需要的时间称为指令周期。8086指令周期最短为2个时钟周期，最长为200个时钟周期</li>
+</ul>
+<p>4． 8086总线操作时序（最小模式下存储器读周期）</p>
+<ul>
+<li><p>T1状态<br>置$M&#x2F;\overline{IO}$为高电平，指示是从存储器读数据<br>T1开始，ALE置高，8282输出跟随输入，T1上升沿，ALE置低,8282锁存20位地址<br>$\overline{BHE}$也在T1状态锁存，指示T2、T3状态传送数据时，高8位是否有效<br>置$DT&#x2F;\overline{R}$为低，控制8286接收数据，置$\overline{DEN}$为高，让8286输出浮空  </p>
+</li>
+<li><p>T2状态<br>撤销地址信号，AD15～AD0处于高阻状态，为读入数据作准备<br>A19&#x2F;S6～A16&#x2F;S3及$\overline{BHE}&#x2F;S7$引脚输出状态信息S6～S3<br>置$\overline{RD}$信号为低电平，输出读信号到存储器<br>置$\overline{DEN}$为低电平，打开8286三态门，准备接收存储器输出的数据  </p>
+</li>
+<li><p>T3状态<br>存储器将数据送到数据总线，CPU通过AD15～AD0接收数据<br>T3上升沿检测READY信号，若为高电平，则下一个为T4状态；否则插入等待周期Tw  </p>
+</li>
+<li><p>T4状态<br>T4开始，撤销$\overline{RD}$和$\overline{DEN}$信号，置为高电平无效，数据总线浮空<br>T4上升沿撤销$DT&#x2F;\overline{R}$信号<br>CPU读取存储器数据的时间为 2T &#x3D; 420ns （$\overline{RD}$或$\overline{DEN}$有效时间）</p>
+</li>
+</ul>
+<p>注：最小模式下I&#x2F;O口读周期与存储器读周期类似，区别为读I&#x2F;O口时，T1状态将置$M&#x2F;\overline{IO}$为低电平，表示是对I&#x2F;O口进行读  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/11/01/16%E4%BD%8D%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A88086/" data-id="clbadhxjv0001l0ov13gzaujt" data-title="16位微处理器8086" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-微型计算机概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/10/05/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time class="dt-published" datetime="2017-10-05T02:34:15.000Z" itemprop="datePublished">2017-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/10/05/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0/">微型计算机概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1．冯.诺依曼结构:运算器、控制器、存储器、输入设备和输出设备</p>
+<p>2．微型计算机(主机):CPU、存储器、输入&#x2F;输出接口（I&#x2F;O口）、系统总线（BUS）</p>
+<p>3．微型计算机系统（MCS—Micro-Computer System）是以微型计算机（主机）为核心，配上外围设备、电源和软件等，能独立工作的完整计算机。</p>
+<p>4．CPU片内数据总线的宽度决定了计算机的位数，准16&#x2F;32位机是指CPU片内数据线的宽度为16&#x2F;32位，片外数据线的宽度为8&#x2F;16位。</p>
+<p>5．‘0’～‘9’,‘A’～‘F’的ASCII码表示为30H～39H,41H～46H</p>
+<p>6．缓冲输出驱动能力强，如果一个芯片是缓冲输出，那么输出拉电流可达15mA，灌电流可达20mA。</p>
+<p>7．非缓冲输出驱动能力较弱（拉电流能力很弱，灌电流能力较强），如果一个芯片是非缓冲输出，那么输出拉电流一般为400μA，灌电流可达8mA。</p>
+<p>8．三态门（缓冲器）：增加驱动，用作数据输入时的缓冲(数据总线)</p>
+<ul>
+<li><del>单向三态缓冲器——74LS244</del>  </li>
+<li>双向三态缓冲器——74LS245、INTEL 8286</li>
+</ul>
+<p>9．D触发器（锁存器）：信号保持，用作信息输出时的锁存(地址总线)</p>
+<ul>
+<li><del>具有异步清零的TTL上升沿锁存器——74LS273</del>  </li>
+<li>具有缓冲输出的TTL低电平锁存器——74LS373、INTEL 8282</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/10/05/%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0/" data-id="clbadhxlh002ul0ov1xrlb6tc" data-title="微型计算机概述" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-C语言格式输出函数printf详解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/09/28/C%E8%AF%AD%E8%A8%80%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0printf%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2017-09-28T02:35:40.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/09/28/C%E8%AF%AD%E8%A8%80%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0printf%E8%AF%A6%E8%A7%A3/">C语言格式输出函数printf详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="printf函数调用的一般形式为"><a href="#printf函数调用的一般形式为" class="headerlink" title="printf函数调用的一般形式为:"></a>printf函数调用的一般形式为:</h2><p>​	<code>printf(“格式控制字符串”, 输出表列)</code></p>
+<h2 id="格式字符串"><a href="#格式字符串" class="headerlink" title="格式字符串"></a>格式字符串</h2><p>在Turbo C中格式字符串的一般形式为：<br>  [标志][输出最小宽度][.精度][长度]类型。<br>如：<code>printf(&quot;%-10.3lf&quot;,a)</code><br>其中方括号[]中的项为可选项。<br>各项的意义介绍如下。</p>
+<ol>
+<li>标志<br>标志字符为 -、+、# 和空格四种，其意义下表所示：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>结果左对齐，右边填空格</td>
+</tr>
+<tr>
+<td>+</td>
+<td>输出符号(正号或负号)</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>输出值为正时冠以空格，为负时冠以负号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>对c、s、d、u类无影响</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>输出最小宽度<br>用十进制整数来表示输出的最少位数。若实际位数多于定义的宽度，则按实际位数输出，若实际位数少于定义的宽度则补以空格或0。</li>
+<li>精度<br>精度格式符以“.”开头，后跟十进制整数。本项的意义是：如果输出数字，则表示小数的位数；如果输出的是字符，则表示输出字符的个数；若实际位数大于所定义的精度数，则截去超过的部分。</li>
+<li>长度<br>长度格式符为h、l两种，h表示按短整型量输出，l表示按长整型量输出。</li>
+<li>类型<br>类型字符用以表示输出数据的类型，其格式符和意义如下表所示：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>o</td>
+<td>以八进制形式输出无符号整数(不输出前缀0)</td>
+</tr>
+<tr>
+<td>d</td>
+<td>以十进制形式输出带符号整数(正数不输出符号）</td>
+</tr>
+<tr>
+<td>u</td>
+<td>以十进制形式输出无符号整数</td>
+</tr>
+<tr>
+<td>x,X</td>
+<td>以十六进制形式输出无符号整数(不输出前缀0x)</td>
+</tr>
+<tr>
+<td>f</td>
+<td>以小数形式输出单、双精度实数</td>
+</tr>
+<tr>
+<td>e,E</td>
+<td>以指数形式输出单、双精度实数</td>
+</tr>
+<tr>
+<td>g,G</td>
+<td>以%f或%e中较短的输出宽度输出单、双精度实数</td>
+</tr>
+<tr>
+<td>c</td>
+<td>输出单个字符</td>
+</tr>
+<tr>
+<td>s</td>
+<td>输出字符串</td>
+</tr>
+</tbody></table>
+<p>对o类，在输出时加前缀o；<br>对x类，在输出时加前缀0x；<br>对e、g、f 类当结果有小数时才给出小数点。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/09/28/C%E8%AF%AD%E8%A8%80%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0printf%E8%AF%A6%E8%A7%A3/" data-id="clbadhxkd000hl0ov7o6jfdm2" data-title="C语言格式输出函数printf详解" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ASCII码表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/09/20/ASCII%E7%A0%81%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2017-09-20T01:49:37.000Z" itemprop="datePublished">2017-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/09/20/ASCII%E7%A0%81%E8%A1%A8/">ASCII码表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ASCII控制字符"><a href="#ASCII控制字符" class="headerlink" title="ASCII控制字符"></a>ASCII控制字符</h1><table>
+<thead>
+<tr>
+<th>二进制</th>
+<th>十进制</th>
+<th>十六进制</th>
+<th>缩写</th>
+<th>名称&#x2F;意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000 0000</td>
+<td>0</td>
+<td>00</td>
+<td>NUL</td>
+<td>空字符（Null）</td>
+</tr>
+<tr>
+<td>0000 0001</td>
+<td>1</td>
+<td>01</td>
+<td>SOH</td>
+<td>标题开始</td>
+</tr>
+<tr>
+<td>0000 0010</td>
+<td>2</td>
+<td>02</td>
+<td>STX</td>
+<td>本文开始</td>
+</tr>
+<tr>
+<td>0000 0011</td>
+<td>3</td>
+<td>03</td>
+<td>ETX</td>
+<td>本文结束</td>
+</tr>
+<tr>
+<td>0000 0100</td>
+<td>4</td>
+<td>04</td>
+<td>EOT</td>
+<td>传输结束</td>
+</tr>
+<tr>
+<td>0000 0101</td>
+<td>5</td>
+<td>05</td>
+<td>ENQ</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>0000 0110</td>
+<td>6</td>
+<td>06</td>
+<td>ACK</td>
+<td>确认回应</td>
+</tr>
+<tr>
+<td>0000 0111</td>
+<td>7</td>
+<td>07</td>
+<td>BEL</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>0000 1000</td>
+<td>8</td>
+<td>08</td>
+<td>BS</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>0000 1001</td>
+<td>9</td>
+<td>09</td>
+<td>HT</td>
+<td>水平定位符号</td>
+</tr>
+<tr>
+<td>0000 1010</td>
+<td>10</td>
+<td>0A</td>
+<td>LF</td>
+<td>换行键</td>
+</tr>
+<tr>
+<td>0000 1011</td>
+<td>11</td>
+<td>0B</td>
+<td>VT</td>
+<td>垂直定位符号</td>
+</tr>
+<tr>
+<td>0000 1100</td>
+<td>12</td>
+<td>0C</td>
+<td>FF</td>
+<td>换页键</td>
+</tr>
+<tr>
+<td>0000 1101</td>
+<td>13</td>
+<td>0D</td>
+<td>CR</td>
+<td>归位键</td>
+</tr>
+<tr>
+<td>0000 1110</td>
+<td>14</td>
+<td>0E</td>
+<td>SO</td>
+<td>取消变换（Shift out）</td>
+</tr>
+<tr>
+<td>0000 1111</td>
+<td>15</td>
+<td>0F</td>
+<td>SI</td>
+<td>启用变换（Shift in）</td>
+</tr>
+<tr>
+<td>0001 0000</td>
+<td>16</td>
+<td>10</td>
+<td>DLE</td>
+<td>跳出数据通讯</td>
+</tr>
+<tr>
+<td>0001 0001</td>
+<td>17</td>
+<td>11</td>
+<td>DC1</td>
+<td>设备控制一（XON 启用软件速度控制）</td>
+</tr>
+<tr>
+<td>0001 0010</td>
+<td>18</td>
+<td>12</td>
+<td>DC2</td>
+<td>设备控制二</td>
+</tr>
+<tr>
+<td>0001 0011</td>
+<td>19</td>
+<td>13</td>
+<td>DC3</td>
+<td>设备控制三（XOFF 停用软件速度控制）</td>
+</tr>
+<tr>
+<td>0001 0100</td>
+<td>20</td>
+<td>14</td>
+<td>DC4</td>
+<td>设备控制四</td>
+</tr>
+<tr>
+<td>0001 0101</td>
+<td>21</td>
+<td>15</td>
+<td>NAK</td>
+<td>确认失败回应</td>
+</tr>
+<tr>
+<td>0001 0110</td>
+<td>22</td>
+<td>16</td>
+<td>SYN</td>
+<td>同步用暂停</td>
+</tr>
+<tr>
+<td>0001 0111</td>
+<td>23</td>
+<td>17</td>
+<td>ETB</td>
+<td>区块传输结束</td>
+</tr>
+<tr>
+<td>0001 1000</td>
+<td>24</td>
+<td>18</td>
+<td>CAN</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>0001 1001</td>
+<td>25</td>
+<td>19</td>
+<td>EM</td>
+<td>连接介质中断</td>
+</tr>
+<tr>
+<td>0001 1010</td>
+<td>26</td>
+<td>1A</td>
+<td>SUB</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>0001 1011</td>
+<td>27</td>
+<td>1B</td>
+<td>ESC</td>
+<td>跳出</td>
+</tr>
+<tr>
+<td>0001 1100</td>
+<td>28</td>
+<td>1C</td>
+<td>FS</td>
+<td>文件分割符</td>
+</tr>
+<tr>
+<td>0001 1101</td>
+<td>29</td>
+<td>1D</td>
+<td>GS</td>
+<td>组群分隔符</td>
+</tr>
+<tr>
+<td>0001 1110</td>
+<td>30</td>
+<td>1E</td>
+<td>RS</td>
+<td>记录分隔符</td>
+</tr>
+<tr>
+<td>0001 1111</td>
+<td>31</td>
+<td>1F</td>
+<td>US</td>
+<td>单元分隔符</td>
+</tr>
+<tr>
+<td>0111 1111</td>
+<td>127</td>
+<td>7F</td>
+<td>DEL</td>
+<td>删除</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/09/20/ASCII%E7%A0%81%E8%A1%A8/" data-id="clbadhxk30005l0ov3z6nfdnm" data-title="ASCII码表" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-debug命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/09/19/debug%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2017-09-19T02:34:55.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/09/19/debug%E5%91%BD%E4%BB%A4/">debug命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>r 查看、修改当前寄存器值</li>
+<li>d 查看内存地址段的内容</li>
+<li>e 修改内存地址中的内容（机器码）</li>
+<li>u 将内存地址段的内容翻译为指令</li>
+<li>t 执行CS:IP处的指令，一条</li>
+<li>a 以汇编格式写入在内存中写入一条指令</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/09/19/debug%E5%91%BD%E4%BB%A4/" data-id="clbadhxks0019l0ov58xc64dz" data-title="debug命令" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Notes-of-C++-Primer-Plus" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/doc/2017/04/14/Notes-of-C++-Primer-Plus/" class="article-date">
+  <time class="dt-published" datetime="2017-04-14T02:36:57.000Z" itemprop="datePublished">2017-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/doc/2017/04/14/Notes-of-C++-Primer-Plus/">Notes of C++ Primer Plus</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>通常，IDE允许在辅助窗口中运行程序。程序执行完毕后，有些IDE将关闭该窗口，而有些IDE则不关闭。如果编译器关闭窗口，将难以看到程序的输出，除非程序员眼疾手快，且过目不忘。为查看输出，必须在程序的最后加上一些代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">get</span>();</span><br><span class="line">cin.<span class="built_in">get</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin.get()</code>语句读取下一次键击，因此上述语句让程序等待，直到按下了<code>Enter</code>键（在按下<code>Enter</code>之前，键击将不被发送给程序，因此按其他键都不管用）。如果程序在其常规输入后留下一个没有被处理的键击，则第二条语句是必需的。例如，如果要输入一个数字，则需要输入该数字，然后按<code>Enter</code>键。程序将读取该数字，但<code>Enter</code>键不被处理，这样它将被第一个<code>cin.get()</code>读取。</p>
+</li>
+<li><p>**控制符<code>dec</code>、<code>hex</code><strong>和</strong><code>oct</code>**，分别用于指示<code>cout</code>以十进制、十六进制和八进制格式显示整数</p>
+</li>
+<li><p><strong>后缀</strong>是放在数字常量后面的字母，用于表示类型。整数后面的<code>l</code>或<code>L</code>后缀表示该整数为<code>long</code>常量，<code>u</code>或<code>U</code>后缀表示<code>unsigned int</code>常量，<code>ul</code>（可以采用任何一种顺序，大写小写均可）表示<code>unsigned long</code>常量（由于小写<code>l</code>看上去像1，因此应使用大写<code>L</code>作后缀）。例如，在<code>int</code>为16位、<code>long</code>为32位的系统上，数字22022被存储为<code>int</code>，占16位，数字22022L被存储为<code>long</code>，占32位。同样，22022LU和22022UL都被存储为<code>unsigned long</code>。</p>
+</li>
+<li><p><code>cout.put()</code>函数输出一个字符,如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch=<span class="string">&#x27;c&#x27;</span>;</span><br><span class="line">cout.<span class="built_in">put</span>(ch);</span><br><span class="line">cout.<span class="built_in">put</span>(<span class="string">&#x27;!&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>成员函数</strong>归类所有，描述了操纵类数据的方法。例如类<code>ostream</code>有一个<code>put()</code>成员函数，用来输出字符。只能通过类的特定对象（例如这里的<code>cout</code>对象）来使用成员函数。要通过对象（如<code>cout</code>）使用成员函数，必须用句点将对象名和函数名称（<code>put()</code>）连接起来。句点被称为<strong>成员操作符</strong>。<code>cout.put()</code>的意思是，通过类对象<code>cout</code>来使用函数<code>put()</code>。</p>
+</li>
+<li><p><img src="https://github.com/avvount/Picture-Bed/raw/master/C++%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png" alt="C++转义字符"></p>
+</li>
+<li><p><strong>Unicode</strong>提供了一种表示各种字符集的解决方案——为大量字符和符号提供标准数值编码，并根据类型将它们分组。例如，<code>ASCII</code>码成为<code>Unicode</code>的子集，因此在这两种系统中，美国的拉丁字符（如<code>A</code>和<code>Z</code>）的表示相同。不过，<code>Unicode</code>还包含其他拉丁字符，如欧洲语言使用的拉丁字符、来自其他语言（如希腊语、西里尔语、希伯来语、阿拉伯语、泰语和孟加拉语）中的字符以及象形文字（如中国和日本的文字）。到目前为止，<code>Unicode</code>可以表示96000多种符号和49个手写符号（<code>script</code>），它还在不断发展中。要了解更多有关的知识，请登录<a target="_blank" rel="noopener" href="http://www.unicode.org/">Unicode联盟的网站</a>。 国际标准化组织（ISO）建立了一个工作组，专门开发ISO 10646——这也是一个对多种语言文本进行编码的标准。ISO 10646小组和<code>Unicode</code>小组从1991年开始合作，以确保他们的标准同步。</p>
+</li>
+<li><p>程序需要处理的字符集可能无法用一个8位的字节表示，如日文汉字系统。对于这种情况，C++的处理方式有两种。首先，如果大型字符集是实现的基本字符集，则编译器厂商可以将char定义为一个16位的字节或更长的字节。其次，一种实现可以同时支持一个小型基本字符集和一个较大的扩展字符集。8位char可以表示基本字符集，另一种类型**<code>wchar_t</code><strong>（</strong>宽字符类型<strong>）可以表示扩展字符集。<code>wchar_t</code>类型是一种</strong>整数类型<strong>，它有足够的空间，可以表示系统使用的最大扩展字符集。这种类型与另一种整型（</strong>底层（<code>underlying</code>）类型**）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是<code>unsigned short</code>，而在另一个系统中，则可能是<code>int</code>。</p>
+<p><code>cin</code>和<code>cout</code>将输入和输出看作是<code>char</code>流，因此不适于用来处理<code>wchar_t</code>类型。<code>iostream</code>头文件的最新版本提供了作用相似的工具——<strong>wcin</strong>和<strong>wcout</strong>，可用于处理<code>wchar_t</code>流。另外，可以通过加上前缀<strong>L</strong>来指示宽字符常量和宽字符串。下面的代码将字母P的<code>wchar_t</code>版本存储到变量<code>bob</code>中，并显示单词<code>tall</code>的<code>wchar_t</code>版本：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">wchar_t</span> bob = <span class="string">L&#x27;F&#x27;</span>;</span><br><span class="line">wcout &lt;&lt; <span class="string">L&quot;tall&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>任何数字值或指针值都可以被<strong>隐式转换</strong>（即不用显式强制转换）为<strong>bool</strong>值</p>
+</li>
+<li><p><strong><code>const</code>限定符</strong></p>
+</li>
+</ol>
+<p> 格式:<code>const type name = value;</code>如<code>const int MONTHS = 12;</code>则程序可以用<code>MONTHS</code>代替<code>12</code>，<code>MONTHS</code>被初始化后不能更改</p>
+<ol start="11">
+<li>强制转换的通用格式</li>
+</ol>
+<p>   <img src="https://github.com/avvount/Picture-Bed/raw/master/%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt="强制类型转换"><br>   第一种格式来自C语言，第二种格式是纯粹的C++。新格式的想法是，要让强制类型转换就像是函数调用。这样对内置类型的强制类型转换就像是为用户定义的类设计的类型转换。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://avvount.github.io/doc/2017/04/14/Notes-of-C++-Primer-Plus/" data-id="clbadhxkm000vl0oveu86facq" data-title="Notes of C++ Primer Plus" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/doc/page/5/">&laquo; 上一页</a><a class="page-number" href="/doc/">1</a><span class="space">&hellip;</span><a class="page-number" href="/doc/page/4/">4</a><a class="page-number" href="/doc/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/ASCII/" rel="tag">ASCII</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Arch/" rel="tag">Arch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Crossover/" rel="tag">Crossover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/K8s/" rel="tag">K8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VBox/" rel="tag">VBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/transmission/" rel="tag">transmission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">单片机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" rel="tag">现代控制理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="tag">自动控制原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag">计算机原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/doc/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/doc/tags/Arch/" style="font-size: 15px;">Arch</a> <a href="/doc/tags/C/" style="font-size: 10px;">C#</a> <a href="/doc/tags/C/" style="font-size: 11.67px;">C++</a> <a href="/doc/tags/Crossover/" style="font-size: 10px;">Crossover</a> <a href="/doc/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 11.67px;">C语言</a> <a href="/doc/tags/K8s/" style="font-size: 10px;">K8s</a> <a href="/doc/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/doc/tags/Python/" style="font-size: 10px;">Python</a> <a href="/doc/tags/VBox/" style="font-size: 10px;">VBox</a> <a href="/doc/tags/VPS/" style="font-size: 16.67px;">VPS</a> <a href="/doc/tags/Windows/" style="font-size: 11.67px;">Windows</a> <a href="/doc/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/doc/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/doc/tags/transmission/" style="font-size: 10px;">transmission</a> <a href="/doc/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 13.33px;">单片机原理</a> <a href="/doc/tags/%E6%B1%87%E7%BC%96/" style="font-size: 13.33px;">汇编</a> <a href="/doc/tags/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" style="font-size: 10px;">现代控制理论</a> <a href="/doc/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/doc/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">自动控制原理</a> <a href="/doc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" style="font-size: 18.33px;">计算机原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/doc/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">K8s 证书更新</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/Linux-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">Linux 信号处理</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/mark/">mark</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/07/03/How-to-structure-your-project-C/">How to structure your project (C++)</a>
+          </li>
+        
+          <li>
+            <a href="/doc/2021/06/19/mtproxy%E9%85%8D%E7%BD%AE/">mtproxy配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Avvount<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/doc/" class="mobile-nav-link">Home</a>
+  
+    <a href="/doc/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/doc/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/doc/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/doc/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
