@@ -14,7 +14,7 @@
 <meta property="og:description" content="证书文件说明证书文件均在&#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;下   Kubernetes 集群根证书ca.crt ca.key由此根证书签发的证书有:    kube-apiserver 组件持有的服务端证书  apiserver.crt apiserver.key kubelet 组件持有的客户端证书  apiserver-kubelet-client">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-05T02:15:25.000Z">
-<meta property="article:modified_time" content="2022-12-05T05:33:03.557Z">
+<meta property="article:modified_time" content="2022-12-05T05:39:03.234Z">
 <meta property="article:author" content="Avvount">
 <meta property="article:tag" content="K8s">
 <meta name="twitter:card" content="summary">
@@ -123,9 +123,16 @@
 <p>以下几种证书在所有master节点的都一样，证书有效期为10年<br>├── ca.crt<br>├── ca.key<br>├── sa.key<br>├── sa.pub<br>├── front-proxy-ca.crt<br>├── front-proxy-ca.key<br>├── etcd<br>├── ├── ca.crt<br>├── ├── ca.key  </p>
 <p>以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年<br>├── apiserver.crt<br>├── apiserver.key<br>├── apiserver-kubelet-client.crt<br>├── apiserver-kubelet-client.key<br>├── front-proxy-client.crt<br>├── front-proxy-client.key<br>├── apiserver-etcd-client.crt<br>├── apiserver-etcd-client.key<br>├── etcd<br>├── ├── healthcheck-client.crt<br>├── ├── healthcheck-client.key<br>├── ├── peer.crt<br>├── ├── peer.key<br>├── ├── server.crt<br>├── ├── server.key </p>
 <h2 id="证书更新"><a href="#证书更新" class="headerlink" title="证书更新"></a>证书更新</h2><p>以下操作需要在所有master节点执行  </p>
-<h3 id="生成集群配置的yaml文件"><a href="#生成集群配置的yaml文件" class="headerlink" title="生成集群配置的yaml文件"></a>生成集群配置的yaml文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config view &gt; /root/kubeadm.yaml</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 备份数据  </span></span><br><span class="line"></span><br><span class="line">```sh</span><br><span class="line">tar -czvf /etc/kubernetes/ etc-kubernetes.tar.gz</span><br><span class="line">tar -czvf /var/lib/etcd etcd.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="生成集群配置的yaml文件"><a href="#生成集群配置的yaml文件" class="headerlink" title="生成集群配置的yaml文件"></a>生成集群配置的yaml文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config view &gt; /root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
 
-<h3 id="更新证书"><a href="#更新证书" class="headerlink" title="更新证书"></a>更新证书</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubeadm certs renew all --config=/root/kubeadm.yaml</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 更新conf配置  </span></span><br><span class="line"></span><br><span class="line">1. 删除旧配置文件  </span><br><span class="line"></span><br><span class="line">```sh</span><br><span class="line"><span class="built_in">rm</span> /etc/kubernetes/admin.conf /etc/kubernetes/kubelet.conf /etc/kubernetes/controller-manager.conf /etc/kubernetes/scheduler.conf </span><br></pre></td></tr></table></figure>
+<h3 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf /etc/kubernetes/ etc-kubernetes.tar.gz</span><br><span class="line">tar -czvf /var/lib/etcd etcd.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新证书"><a href="#更新证书" class="headerlink" title="更新证书"></a>更新证书</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm certs renew all --config=/root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新conf配置"><a href="#更新conf配置" class="headerlink" title="更新conf配置"></a>更新conf配置</h3><ol>
+<li>删除旧配置文件</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> /etc/kubernetes/admin.conf /etc/kubernetes/kubelet.conf /etc/kubernetes/controller-manager.conf /etc/kubernetes/scheduler.conf </span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>生成新配置文件</li>
@@ -148,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://avvount.github.io/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/" data-id="clbacwmn900009doqecor5yxo" data-title="K8s 证书更新" class="article-share-link">分享</a>
+      <a data-url="https://avvount.github.io/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/" data-id="clbad4b3z0000ilotgx5f17q4" data-title="K8s 证书更新" class="article-share-link">分享</a>
       
       
       
