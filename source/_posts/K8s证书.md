@@ -78,10 +78,11 @@ kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书
 
 以下操作需要在所有master节点执行  
 
-### 生成集群配置的yaml文件
+### 生成集群配置的yaml文件  
+
 ```sh
 kubeadm config view > /root/kubeadm.yaml
-```  
+```
 
 ### 备份数据  
 
@@ -93,7 +94,7 @@ tar -czvf /var/lib/etcd etcd.tar.gz
 ### 更新证书  
 ```sh
 kubeadm certs renew all --config=/root/kubeadm.yaml
-```  
+```
 
 ### 更新conf配置  
 
