@@ -1,7 +1,9 @@
 ---
 title: K8s 证书更新
 date: 2022-12-05 10:15:25
-tags: K8s
+tags:
+    - K8s
+    - Linux
 ---
 ## 证书文件说明  
 证书文件均在/etc/kubernetes/pki/下  

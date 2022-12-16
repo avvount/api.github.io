@@ -1,43 +1,17 @@
 ---
 title: Kubernetes
 date: 2020-04-18 23:32:27
-tags:
+tags: 
+    - K8s
+    - Linux
 ---
 
-## 设置rsyslogd和systemd
+## 设置rsyslogd和systemd  
 
-```shell
-mkdir /var/log/journal
-mkdir /etc/systemd/journald.conf.d
-cat > /etc/systemd/journald.conf.d/99-prophet.conf <<EOF
-[Journal]
-# 持久化保存到磁盘
-Storage=persistent
+见[journalctl笔记](journalctl笔记#服务配置)  
 
-#压缩历史日志
-Compress=yes
-
-SyncIntervalSec=5m
-RateLimitInterval=30s
-RatelimitBurst=1000
-
-#最大占用空间10G
-SystemMaxUse=10G
-
-#单日志文件最大200M
-SystemMaxFileSize=200M
-
-#日志保存时间2周
-MaxRetentionSec=2week
-
-#不将日志转发到syslog
-ForwardToSyslog=no
-EOF
-
-systemctl restart systemd-journald
-```
 ## Docker配置
-```shell
+```sh
 cat > /etc/docker/daemon.json <<EOF
 {
     "exec-opts":["native.cgroupdrive=systemd"],
@@ -54,7 +28,7 @@ systemctl daemon-reload && systemctl restart docker
 
 ## 安装Kubeadm
 
-```shell
+```sh
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
