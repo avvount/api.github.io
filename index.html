@@ -145,6 +145,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2022/12/16/journalctl%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2022/12/16/journalctl%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">journalctl笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-16 08:26:31 / Modified: 08:35:04" itemprop="dateCreated datePublished" datetime="2022-12-16T08:26:31+08:00">2022-12-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="服务配置"><a href="#服务配置" class="headerlink" title="服务配置"></a>服务配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /var/log/journal</span><br><span class="line"><span class="built_in">mkdir</span> /etc/systemd/journald.conf.d</span><br><span class="line"><span class="built_in">cat</span> &gt; /etc/systemd/journald.conf.d/99-prophet.conf &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Journal]</span></span><br><span class="line"><span class="string"># 持久化保存到磁盘</span></span><br><span class="line"><span class="string">Storage=persistent</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#压缩历史日志</span></span><br><span class="line"><span class="string">Compress=yes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">SyncIntervalSec=5m</span></span><br><span class="line"><span class="string">RateLimitInterval=30s</span></span><br><span class="line"><span class="string">RatelimitBurst=1000</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#最大占用空间10G</span></span><br><span class="line"><span class="string">SystemMaxUse=10G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#单日志文件最大200M</span></span><br><span class="line"><span class="string">SystemMaxFileSize=200M</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#日志保存时间2周</span></span><br><span class="line"><span class="string">MaxRetentionSec=2week</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#不将日志转发到syslog</span></span><br><span class="line"><span class="string">ForwardToSyslog=no</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">systemctl restart systemd-journald</span><br></pre></td></tr></table></figure>
+
+<h2 id="清理日志"><a href="#清理日志" class="headerlink" title="清理日志"></a>清理日志</h2><p>只保留最近两天的日志  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --vacuum-time=2d</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2022/12/16/journalctl%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2022/12/05/K8s%E8%AF%81%E4%B9%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +237,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-12-05 10:15:25 / Modified: 14:47:51" itemprop="dateCreated datePublished" datetime="2022-12-05T10:15:25+08:00">2022-12-05</time>
+              <time title="Created: 2022-12-05 10:15:25" itemprop="dateCreated datePublished" datetime="2022-12-05T10:15:25+08:00">2022-12-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
+              </span>
 
           
 
@@ -247,7 +322,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -322,7 +397,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -387,7 +462,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -473,7 +548,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -551,7 +626,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -617,7 +692,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -692,7 +767,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -758,7 +833,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
+                <time title="Modified: 2022-12-16 08:35:04" itemprop="dateModified" datetime="2022-12-16T08:35:04+08:00">2022-12-16</time>
               </span>
 
           
@@ -772,143 +847,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="设置rsyslogd和systemd"><a href="#设置rsyslogd和systemd" class="headerlink" title="设置rsyslogd和systemd"></a>设置rsyslogd和systemd</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/log/journal</span><br><span class="line">mkdir /etc/systemd/journald.conf.d</span><br><span class="line">cat &gt; /etc/systemd/journald.conf.d/99-prophet.conf &lt;&lt;EOF</span><br><span class="line">[Journal]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">持久化保存到磁盘</span></span><br><span class="line">Storage=persistent</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">压缩历史日志</span></span><br><span class="line">Compress=yes</span><br><span class="line"></span><br><span class="line">SyncIntervalSec=5m</span><br><span class="line">RateLimitInterval=30s</span><br><span class="line">RatelimitBurst=1000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">最大占用空间10G</span></span><br><span class="line">SystemMaxUse=10G</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">单日志文件最大200M</span></span><br><span class="line">SystemMaxFileSize=200M</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">日志保存时间2周</span></span><br><span class="line">MaxRetentionSec=2week</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不将日志转发到syslog</span></span><br><span class="line">ForwardToSyslog=no</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl restart systemd-journald</span><br></pre></td></tr></table></figure>
-<h2 id="Docker配置"><a href="#Docker配置" class="headerlink" title="Docker配置"></a>Docker配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">    &quot;exec-opts&quot;:[&quot;native.cgroupdrive=systemd&quot;],</span><br><span class="line">    &quot;log-driver&quot;:&quot;json-file&quot;,</span><br><span class="line">    &quot;log-opts&quot;:&#123;</span><br><span class="line">        &quot;max-size&quot;:&quot;100m&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">mkdir -p /etc/systemd/system/docker.service.d/</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h2 id="设置rsyslogd和systemd"><a href="#设置rsyslogd和systemd" class="headerlink" title="设置rsyslogd和systemd"></a>设置rsyslogd和systemd</h2><p>见<a href="journalctl%E7%AC%94%E8%AE%B0#%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE">journalctl笔记</a>  </p>
+<h2 id="Docker配置"><a href="#Docker配置" class="headerlink" title="Docker配置"></a>Docker配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /etc/docker/daemon.json &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    &quot;exec-opts&quot;:[&quot;native.cgroupdrive=systemd&quot;],</span></span><br><span class="line"><span class="string">    &quot;log-driver&quot;:&quot;json-file&quot;,</span></span><br><span class="line"><span class="string">    &quot;log-opts&quot;:&#123;</span></span><br><span class="line"><span class="string">        &quot;max-size&quot;:&quot;100m&quot;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d/</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="安装Kubeadm"><a href="#安装Kubeadm" class="headerlink" title="安装Kubeadm"></a>安装Kubeadm</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/doc/2020/04/18/Kubernetes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doc/images/avatar.gif">
-      <meta itemprop="name" content="Avvount">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">cmake&gcc笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-09-14 21:54:32" itemprop="dateCreated datePublished" datetime="2019-09-14T21:54:32+08:00">2019-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-05 14:47:51" itemprop="dateModified" datetime="2022-12-05T14:47:51+08:00">2022-12-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="cmake常用编译选项"><a href="#cmake常用编译选项" class="headerlink" title="cmake常用编译选项"></a>cmake常用编译选项</h2><ol>
-<li><p>指定项目名称  </p>
-<p> <code>project(myproject VERSION 0.1.0)</code><br> 较老版本cmake可能不支持后两个参数,可以使用<code>project(myproject)</code>  </p>
-</li>
-<li><p>设置C++标准</p>
-</li>
-</ol>
-<ul>
-<li>cmake 3.1后<br>  <code>set(CMAKE_CXX_STANDARD 11)</code>  </li>
-<li>cmake 3.1前<br>  <code>set (CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot;)</code></li>
-</ul>
-<ol start="3">
-<li><p>指定头文件路径<br> <code>include_directories($&#123;PROJECT_SOURCE_DIR&#125;/include)</code><br> <code>include_directories(/usr/local/include/xxx)</code>  </p>
-</li>
-<li><p>指定链接库路径  </p>
-<p> <code>link_directories($&#123;PROJECT_SOURCE_DIR&#125;/lib/)</code><br> <code>link_directories(/usr/local/lib/xxx)</code></p>
-</li>
-<li><p>链接库  </p>
-<p> <code>link_libraries(pthread xxx.a)</code><br> <code>link_libraries(pthread &quot;-Wl,--whole-archive&quot; xxx.a &quot;-Wl,--no-whole-archive&quot;)</code>  </p>
-<p> <code>&quot;-Wl,--whole-archive&quot;</code>和<code>&quot;-Wl,--no-whole-archive&quot;</code>用于生成动态库(yyy.so),是ld使用的命令行参数<br> <code>&quot;-Wl,--whole-archive&quot;</code> 告诉编译器，从这里开始，所有的库的内容都包含到yyy.so中,这种方式生成的so较大,之后依赖该yyy.so的程序可以直接使用yyy.so所依赖的静态库xxx中的函数而不需要再次静态链接xxx<br> <code>&quot;-Wl,--no-whole-archive&quot;</code> 告诉编译器，从这里开始，以后的库的内容不用都包含到so中,so体积较小,依赖该so的程序需要使用静态库xxx中未被yyy.so使用的函数时需要再次链接xxx  </p>
-<p> 也可以使用 <code>target_link_libraries(target_name &quot;-Wl,--whole-archive&quot; xxx.a &quot;-Wl,--no-whole-archive&quot; pthread)</code> 进行链接,<code>target_link_libraries</code>用在第7条之后,只对指定生成目标生效,<code>link_libraries</code>用在第7条之前,对之后所有生成目标均生效</p>
-</li>
-<li><p>库与库的依赖关系</p>
-<ul>
-<li><p>动态库a依赖动态库b  </p>
-<p>  编译a时不链接b也可以编译通过,但不要这样做<br>  若a链接b,则之后生成可执行程序时不需再次链接b</p>
-</li>
-<li><p>动态库a依赖静态库b<br>  参考第五条</p>
-</li>
-<li><p>静态库a依赖动态库b<br> 编译静态库时不进行链接动作,所以a不需要链接b,a也不会包含b,之后链接a时需要同时链接b</p>
-</li>
-<li><p>静态库a依赖静态库b<br>  同上,a不需要链接b,a也不会包含b,之后链接a时需要同时链接b<br>  或者可以在编译a后将a和b打包到同一个静态库中,通过命令 <code>add_custom_target</code> 完成,暂时没有研究</p>
-</li>
-<li><p>可执行程序依赖静态库<br>  必须将静态库的依赖都进行链接  </p>
-</li>
-<li><p>可执行程序依赖动态库<br>只要编译时动态库对依赖进行了链接,此时就不再需要进行链接</p>
-</li>
-</ul>
-<p> 综上所述,只有在编译可执行程序时链接是必须的,编译静态库不需要对依赖进行链接,编译动态库时不对依赖进行链接也可以编译通过(但不要这样做)</p>
-</li>
-<li><p>生成库或可执行文件  </p>
-<p> <code>add_library(target_name SHARED $&#123;SOURCES&#125; $&#123;HEADERS&#125;)</code>  生成动态库<br> <code>add_library(target_name STATIC $&#123;SOURCES&#125; $&#123;HEADERS&#125;)</code>  生成静态库<br> <code>add_executable(target_name $&#123;SOURCES&#125; $&#123;HEADERS&#125;)</code>  生成可执行程序  </p>
-</li>
-<li><p>其他命令  </p>
-<ul>
-<li><p><code>set_target_properties(target_name PROPERTIES OUTPUT_NAME another_target_name)</code><br> 修改target_name名称为another_target_name,由于CMake中多个生成目标名称必须不同,当需要同时生成动态库和静态库时可以使用该命令同时生成相同库名的动态库和静态库  </p>
-</li>
-<li><p>GLOB添加your-folder下多个文件</p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>(GLOB SOURCES</span><br><span class="line">        your-folder/*.hxx</span><br><span class="line">        your-folder/*.cxx)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>aux_source_directory(. DIR_SRCS)</code></p>
-</li>
-</ul>
-<p> 查找当前目录下的所有源文件,并将名称保存到 DIR_SRCS 变量</p>
-</li>
-<li><p>编译Debug版和Release版程序  </p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>) </span><br><span class="line"><span class="keyword">SET</span>(CMAKE_CXX_FLAGS_DEBUG <span class="string">&quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g -ggdb&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(CMAKE_CXX_FLAGS_RELEASE <span class="string">&quot;$ENV&#123;CXXFLAGS&#125; -O3 -Wall&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -997,7 +942,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/doc/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
