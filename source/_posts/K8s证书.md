@@ -62,19 +62,19 @@ kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书
 以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年 
 ├── apiserver.crt  
 ├── apiserver.key  
-├── apiserver-kubelet-client.crt 
-├── apiserver-kubelet-client.key
-├── front-proxy-client.crt 
-├── front-proxy-client.key
+├── apiserver-kubelet-client.crt  
+├── apiserver-kubelet-client.key  
+├── front-proxy-client.crt  
+├── front-proxy-client.key  
 ├── apiserver-etcd-client.crt  
-├── apiserver-etcd-client.key
+├── apiserver-etcd-client.key  
 ├── etcd  
 ├── ├── healthcheck-client.crt  
-├── ├── healthcheck-client.key 
+├── ├── healthcheck-client.key  
 ├── ├── peer.crt  
-├── ├── peer.key 
+├── ├── peer.key  
 ├── ├── server.crt  
-├── ├── server.key 
+├── ├── server.key  
  
 ## 证书更新   
 
@@ -89,24 +89,24 @@ kubeadm config view > /root/kubeadm.yaml
 ### 备份数据  
 
 ```sh
-tar -czvf /etc/kubernetes/ etc-kubernetes.tar.gz
-tar -czvf /var/lib/etcd etcd.tar.gz
+tar -czvf etc-kubernetes.tar.gz /etc/kubernetes
+tar -czvf etcd.tar.gz /var/lib/etcd
 ```
 
 ### 更新证书  
 ```sh
-kubeadm certs renew all --config=/root/kubeadm.yaml
+kubeadm alpha certs renew all --config=/root/kubeadm.yaml
 ```
 
 ### 更新conf配置  
 
-1. 删除旧配置文件  
+1. ~~删除旧配置文件~~  
 
 ```sh
 rm /etc/kubernetes/admin.conf /etc/kubernetes/kubelet.conf /etc/kubernetes/controller-manager.conf /etc/kubernetes/scheduler.conf 
 ```
 
-2. 生成新配置文件   
+2. ~~生成新配置文件~~   
 
 ```sh
 kubeadm init phase kubeconfig all --config /root/kubeadm.yaml
@@ -122,14 +122,14 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 ### 检查证书到期时间是否延长  
 ```sh
-kubeadm certs check-expiration  
+kubeadm alpha certs check-expiration  
 ```
 
 
 ### 重启 kube-apiserver kube-controller-manager kube-scheduler etcd  
 
 ```sh
-systemctl restart kublet
+systemctl restart kubelet
 # docker ps | grep -E 'k8s_kube-apiserver|k8s_kube-controller-manager|k8s_kube-scheduler|k8s_etcd_etcd' | awk -F ' ' '{print $1}' | xargs docker restart
 ```
 
