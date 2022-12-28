@@ -28,7 +28,7 @@
 <meta property="og:description" content="证书文件说明证书文件均在&#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;下   Kubernetes 集群根证书ca.crt ca.key由此根证书签发的证书有:    kube-apiserver 组件持有的服务端证书  apiserver.crt apiserver.key kubelet 组件持有的客户端证书  apiserver-kubelet-client">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-12-05T02:15:25.000Z">
-<meta property="article:modified_time" content="2022-12-28T08:04:47.990Z">
+<meta property="article:modified_time" content="2022-12-28T08:07:45.948Z">
 <meta property="article:author" content="Avvount">
 <meta property="article:tag" content="K8s">
 <meta property="article:tag" content="Linux">
@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:04:47" itemprop="dateModified" datetime="2022-12-28T16:04:47+08:00">2022-12-28</time>
+                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
               </span>
 
           
@@ -220,8 +220,12 @@
 </ol>
 <h3 id="Serveice-Account秘钥"><a href="#Serveice-Account秘钥" class="headerlink" title="Serveice Account秘钥"></a>Serveice Account秘钥</h3><p><code>sa.crt sa.key</code>  </p>
 <p>这组的密钥对仅提供给 kube-controller-manager 使用。 kube-controller-manager 通过 sa.key 对 token 进行签名, master 节点通过公钥 sa.pub 进行签名的验证.</p>
-<p>以下几种证书在所有master节点的都一样，证书有效期为10年<br>├── ca.crt<br>├── ca.key<br>├── sa.key<br>├── sa.pub<br>├── front-proxy-ca.crt<br>├── front-proxy-ca.key<br>├── etcd<br>├── ├── ca.crt<br>├── ├── ca.key  </p>
-<p>以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年<br>├── apiserver.crt<br>├── apiserver.key<br>├── apiserver-kubelet-client.crt<br>├── apiserver-kubelet-client.key<br>├── front-proxy-client.crt<br>├── front-proxy-client.key<br>├── apiserver-etcd-client.crt<br>├── apiserver-etcd-client.key<br>├── etcd<br>├── ├── healthcheck-client.crt<br>├── ├── healthcheck-client.key<br>├── ├── peer.crt<br>├── ├── peer.key<br>├── ├── server.crt<br>├── ├── server.key  </p>
+<p>以下几种证书在所有master节点的都一样，证书有效期为10年</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├── ca.crt  </span><br><span class="line">├── ca.key  </span><br><span class="line">├── sa.key  </span><br><span class="line">├── sa.pub  </span><br><span class="line">├── front-proxy-ca.crt  </span><br><span class="line">├── front-proxy-ca.key  </span><br><span class="line">├── etcd  </span><br><span class="line">├── ├── ca.crt  </span><br><span class="line">├── ├── ca.key  </span><br></pre></td></tr></table></figure>
+
+<p>以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">├── apiserver.crt  </span><br><span class="line">├── apiserver.key  </span><br><span class="line">├── apiserver-kubelet-client.crt  </span><br><span class="line">├── apiserver-kubelet-client.key  </span><br><span class="line">├── front-proxy-client.crt  </span><br><span class="line">├── front-proxy-client.key  </span><br><span class="line">├── apiserver-etcd-client.crt  </span><br><span class="line">├── apiserver-etcd-client.key  </span><br><span class="line">├── etcd  </span><br><span class="line">├── ├── healthcheck-client.crt  </span><br><span class="line">├── ├── healthcheck-client.key  </span><br><span class="line">├── ├── peer.crt  </span><br><span class="line">├── ├── peer.key  </span><br><span class="line">├── ├── server.crt  </span><br><span class="line">├── ├── server.key  </span><br></pre></td></tr></table></figure>
+
 <h2 id="证书更新"><a href="#证书更新" class="headerlink" title="证书更新"></a>证书更新</h2><p>以下操作需要在所有master节点执行  </p>
 <h3 id="生成集群配置的yaml文件"><a href="#生成集群配置的yaml文件" class="headerlink" title="生成集群配置的yaml文件"></a>生成集群配置的yaml文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config view &gt; /root/kubeadm.yaml</span><br></pre></td></tr></table></figure>
 
