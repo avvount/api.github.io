@@ -49,6 +49,7 @@ kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书
 这组的密钥对仅提供给 kube-controller-manager 使用。 kube-controller-manager 通过 sa.key 对 token 进行签名, master 节点通过公钥 sa.pub 进行签名的验证.
 
 以下几种证书在所有master节点的都一样，证书有效期为10年
+```
 ├── ca.crt  
 ├── ca.key  
 ├── sa.key  
@@ -58,8 +59,10 @@ kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书
 ├── etcd  
 ├── ├── ca.crt  
 ├── ├── ca.key  
+```
 
 以下证书每次更新时需要在每个master节点进行更新，证书默认有效期为1年 
+```
 ├── apiserver.crt  
 ├── apiserver.key  
 ├── apiserver-kubelet-client.crt  
@@ -75,7 +78,8 @@ kubelet 上一般不会明确指定服务端证书, 而是只指定 ca 根证书
 ├── ├── peer.key  
 ├── ├── server.crt  
 ├── ├── server.key  
- 
+```
+
 ## 证书更新   
 
 以下操作需要在所有master节点执行  
