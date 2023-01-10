@@ -145,6 +145,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2020/04/18/Kubernetes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/doc/images/avatar.gif">
+      <meta itemprop="name" content="Avvount">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/doc/2020/04/18/Kubernetes/" class="post-title-link" itemprop="url">Kubernetes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-18 23:32:27" itemprop="dateCreated datePublished" datetime="2020-04-18T23:32:27+08:00">2020-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="设置rsyslogd和systemd"><a href="#设置rsyslogd和systemd" class="headerlink" title="设置rsyslogd和systemd"></a>设置rsyslogd和systemd</h2><p>见<a href="journalctl%E7%AC%94%E8%AE%B0#%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE">journalctl笔记</a>  </p>
+<h2 id="Docker配置"><a href="#Docker配置" class="headerlink" title="Docker配置"></a>Docker配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /etc/docker/daemon.json &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    &quot;exec-opts&quot;:[&quot;native.cgroupdrive=systemd&quot;],</span></span><br><span class="line"><span class="string">    &quot;log-driver&quot;:&quot;json-file&quot;,</span></span><br><span class="line"><span class="string">    &quot;log-opts&quot;:&#123;</span></span><br><span class="line"><span class="string">        &quot;max-size&quot;:&quot;100m&quot;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d/</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Kubeadm"><a href="#安装Kubeadm" class="headerlink" title="安装Kubeadm"></a>安装Kubeadm</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/doc/2020/04/18/Kubernetes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2019/09/14/cmake-gcc%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -306,7 +381,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -376,7 +451,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -452,7 +527,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -538,7 +613,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -612,7 +687,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -677,7 +752,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -753,7 +828,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -830,7 +905,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
+                <time title="Modified: 2023-01-10 10:35:04" itemprop="dateModified" datetime="2023-01-10T10:35:04+08:00">2023-01-10</time>
               </span>
 
           
@@ -848,71 +923,6 @@
 <blockquote>
 <h2 id="squirrel-custom-yaml"><a href="#squirrel-custom-yaml" class="headerlink" title="squirrel.custom.yaml"></a>squirrel.custom.yaml</h2></blockquote>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span>  </span><br><span class="line">    <span class="attr">app_options/winkawaks.exe:</span>  </span><br><span class="line">        <span class="attr">ascii_mode:</span> <span class="literal">true</span>  </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://avvount.github.io/doc/2018/04/05/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/doc/images/avatar.gif">
-      <meta itemprop="name" content="Avvount">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/doc/2018/04/05/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="post-title-link" itemprop="url">Chrome浏览器离线安装包下载地址</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-04-05 20:43:26" itemprop="dateCreated datePublished" datetime="2018-04-05T20:43:26+08:00">2018-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-28 16:07:45" itemprop="dateModified" datetime="2022-12-28T16:07:45+08:00">2022-12-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong><a target="_blank" rel="noopener" href="https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1">最新稳定版</a><br><a target="_blank" rel="noopener" href="https://www.google.com/intl/zh-CN/chrome/beta/?standalone=1&extra=betachannel">最新测试版</a><br><a target="_blank" rel="noopener" href="https://www.google.com/intl/zh-CN/chrome/dev/?standalone=1&extra=devchannel">最新开发版</a></strong></p>
 
       
     </div>
@@ -997,13 +1007,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/doc/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/doc/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1030,7 +1040,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
